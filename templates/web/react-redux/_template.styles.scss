@@ -1,0 +1,18 @@
+/*
+NOTE: Remember to add this style sheet o the main style sheet found in 'src/index.scss'.
+*/
+
+/*
+Add all the component styling and nested styling here.
+*/
+
+.TEMPLATE_KEBAB_CASE_NAME {
+  background-color: purple;
+  text-align: center;
+  padding: 10px;
+
+  h1 {
+    color: orange;
+    font-size: 40px;
+  }
+}
