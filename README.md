@@ -45,14 +45,16 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 
 #### Command Parameter Description:
 
-* `-n, --name [name]`:                               This is the lower kebab case name of the feature/component you would like to generate (e.g. kebab-example-name). (default: kebab-example-name)
-* `-d, --directory [directory]`:                     This is the relative directory where the generated component will be placed (e.g src/components). (default: src/components)
-* `-N, --native [native]`:                           If you wish to generate code for React-Native, add this parameter - else React web code will be generated. (default: false)
-* `-r, --redux [redux]`:                             If you wish to generate Redux code in the duck pattern, add this parameter - else regular React code will be generated. (default: false)
-* `-o, --omit-comments [omitComments]`:              If you wish to hide the comments within the generated files, add this parameter - else descriptive comments will be left in the generated code. (default: false)
-* `-R, --redux-core [reduxCore]`:                    If you would like to generate the Redux core files ('store', 'root-reducer', and 'action-creator'), add this parameter. These files are used to connect your application with Redux. (default: false)
-* `-D, --redux-core-directory [reduxCoreDirectory]`: This is the relative directory where the generated Redux core file will be placed (e.g src/redux). It is recommended to leave this as the default. (default: src/redux)
-* `-h, --help`:                                      Output usage information.
+|Parameter|Description|Default Value|
+|---------|-----------|-------|
+|`-n, --name`                 | This is the lower kebab case name of the feature/component you would like to generate (e.g. kebab-example-name).                                                                     | kebab-example-name |
+|`-d, --directory`            | This is the relative directory where the generated component will be placed (e.g src/components).                                                                                    | src/components     |
+|`-N, --native`               | If you wish to generate code for React-Native, add this parameter - else React web code will be generated.                                                                           | false              |
+|`-r, --redux`                | If you wish to generate Redux code in the duck pattern, add this parameter - else regular React code will be generated.                                                              | false              |
+|`-o, --omit-comments`        | If you wish to hide the comments within the generated files, add this parameter - else descriptive comments will be left in the generated code.                                      | false              |
+|`-R, --redux-core`           | If you would like to generate the Redux core files ('store', 'root-reducer', and 'action-creator'), add this parameter. These files are used to connect your application with Redux. | false              |
+|`-D, --redux-core-directory` | This is the relative directory where the generated Redux core file will be placed (e.g src/redux). It is recommended to leave this as the default.                                   | src/redux          |
+|`-h, --help`                 | Output help usage information.                                                                                                                                                       |                    |
 
 
 #### Generated Output Example (React)
