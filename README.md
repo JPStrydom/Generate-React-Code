@@ -36,14 +36,14 @@ Then add the following script to your `packages.json` file:
 }
 ```
 
-#### Generation Command
+## Generation Command
 
 The following command can be used to generate code:
 ```
 npm run gen-react-code -- -n example-component -d src/example/dir -r
 ```
 
-#### Command Parameter Description:
+## Command Parameter Description:
 
 |Parameter|Description|Default Value|
 |---------|-----------|-------|
@@ -57,7 +57,7 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 |`-h, --help`                 | Output help usage information.                                                                                                                                                       |                    |
 
 
-#### Generated Output Example (React)
+## Generated Output Example (React)
 
 Given the following example code generation command:
 ```
@@ -76,7 +76,7 @@ project
 Within these files the majority of the React-Native code will be completed for you - which contains detailed comments on how to add your
 functionality and general best practices.
 
-#### Generated Output Example (React with Redux)
+## Generated Output Example (React with Redux)
 
 Given the following example code generation command:
 ```
@@ -104,7 +104,7 @@ _IMPORTANT NOTE:_
 * _Remember to add generated reducers to the root reducer, which is usually located in 'src/redux/root-reducer.js_
 * _Remember to add generated style sheets to the main style sheet, which is usually located in 'src/index.scss_
 
-#### Generated Output Example (Redux core files)
+## Generated Output Example (Redux core files)
 
 Given the following example code generation command:
 ```
