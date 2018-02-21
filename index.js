@@ -14,12 +14,12 @@ const DEFAULT_REDUX_CORE_DIRECTORY = 'src/redux';
 program
     .option(
         '-n, --name [name]',
-        `This is the kebab case name of the feature being generated (e.g. ${DEFAULT_NAME}).`,
+        `This is the lower kebab case name of the feature/component you would like to generate (e.g. ${DEFAULT_NAME}).`,
         DEFAULT_NAME
     )
     .option(
         '-d, --directory [directory]',
-        `This is the directory where the generated component will be placed (e.g ${DEFAULT_COMPONT_DIRECTORY}).`,
+        `This is the relative directory where the generated component will be placed (e.g ${DEFAULT_COMPONT_DIRECTORY}).`,
         DEFAULT_COMPONT_DIRECTORY
     )
     .option(
@@ -44,7 +44,7 @@ program
     )
     .option(
         '-D, --redux-core-directory [reduxCoreDirectory]',
-        `This is the directory where the generated Redux core file will be placed (e.g ${DEFAULT_REDUX_CORE_DIRECTORY}). It is recommended to leave this as the default.`,
+        `This is the relative directory where the generated Redux core file will be placed (e.g ${DEFAULT_REDUX_CORE_DIRECTORY}). It is recommended to leave this as the default.`,
         DEFAULT_REDUX_CORE_DIRECTORY
     )
     .parse(process.argv);

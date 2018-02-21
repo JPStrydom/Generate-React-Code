@@ -43,7 +43,7 @@ function createAllTemplates(
         function getReduxCoreDirs(reduxCoreDirectory) {
             const templateDirectory = path.join(__dirname, 'templates', 'redux-core');
             // TODO: Might have to alter the generated directory based on where the npm package is placed
-            const generatedDirectory = path.join(__dirname, '..', reduxCoreDirectory);
+            const generatedDirectory = path.join(__dirname, '..', '..', reduxCoreDirectory);
 
             if (!fs.existsSync(generatedDirectory)) {
                 shell.mkdir('-p', path.join(generatedDirectory, 'action-creator', 'test'));
@@ -110,7 +110,7 @@ function createAllTemplates(
             const subSubDir = redux ? 'react-redux' : 'react';
 
             const templateDirectory = path.join(__dirname, 'templates', subDir, subSubDir);
-            const generatedDirectory = path.join(__dirname, directory, name);
+            const generatedDirectory = path.join(__dirname, '..', '..', directory, name);
 
             if (!fs.existsSync(generatedDirectory)) {
                 shell.mkdir('-p', path.join(generatedDirectory, 'test'));
