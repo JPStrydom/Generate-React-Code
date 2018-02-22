@@ -1,6 +1,7 @@
-# Generate React Code
+Generate React Code
+===================
 
-## Code Generation Tool
+[![Build Status](https://travis-ci.org/JPStrydom/Generate-Redux-Code.svg?branch=master)](https://travis-ci.org/JPStrydom/Generate-Redux-Code)
 
 This project utilises a scaffolding framework which generates React or React-Native code along with all the essential
 test code... Because who likes writing that themselves?!
