@@ -5,7 +5,7 @@
     "email": "jpstrydom8@gmail.com"
   },
   "version": "1.0.4",
-  "description": "An automated React code generation tool for web, native, and/or Redux Ducks.",
+  "description": "An automated React code generation tool for React web, React-Native, and/or Redux in the ducks modular pattern.",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "chai": "4.1.2",
-    "coveralls": "^3.0.0",
-    "istanbul": "^0.4.5",
+    "coveralls": "3.0.0",
+    "istanbul": "0.4.5",
     "mocha": "5.0.1",
     "prettier": "1.10.2"
   },
