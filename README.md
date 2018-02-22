@@ -2,6 +2,7 @@ Generate React Code
 ===================
 
 [![Build Status](https://travis-ci.org/JPStrydom/Generate-Redux-Code.svg?branch=master)](https://travis-ci.org/JPStrydom/Generate-Redux-Code)
+[![Coverage Status](https://coveralls.io/repos/github/JPStrydom/Generate-React-Code/badge.svg?branch=master)](https://coveralls.io/github/JPStrydom/Generate-React-Code?branch=master)
 
 This project utilises a scaffolding framework which generates React or React-Native code along with all the essential
 test code... Because who likes writing that themselves?!
