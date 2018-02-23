@@ -8,7 +8,7 @@ This project utilises a scaffolding framework which generates React or React-Nat
 test code... Because who likes writing that themselves?!
 
 Additionally, it can be used to generate Redux code conforming to the [Redux ducks pattern](https://github.com/erikras/ducks-modular-redux) - and it can also be used to 
-generate the Redux core files needed for React-Redux projects ('store', 'root-reducer', and 'action-creator').
+generate the Redux core files needed for React-Redux projects (`store`, `root-reducer`, and `action-creator`).
 
 This generated code conforms to the [Air BnB style guide's](https://github.com/airbnb/javascript) naming and coding-style
 conventions, and it is thus highly recommended to make use of this tool when creating new React or React-Redux components.
@@ -49,14 +49,14 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 
 |Parameter|Description|Default Value|
 |---------|-----------|-------|
-|`-n, --name`                 | This is the lower kebab case name of the feature/component you would like to generate (e.g. kebab-example-name).                                                                     | kebab-example-name |
-|`-d, --directory`            | This is the relative directory where the generated component will be placed (e.g src/components).                                                                                    | src/components     |
-|`-N, --native`               | If you wish to generate code for React-Native, add this parameter - else React web code will be generated.                                                                           | false              |
-|`-r, --redux`                | If you wish to generate Redux code in the duck pattern, add this parameter - else regular React code will be generated.                                                              | false              |
-|`-o, --omit-comments`        | If you wish to hide the comments within the generated files, add this parameter - else descriptive comments will be left in the generated code.                                      | false              |
-|`-R, --redux-core`           | If you would like to generate the Redux core files ('store', 'root-reducer', and 'action-creator'), add this parameter. These files are used to connect your application with Redux. | false              |
-|`-D, --redux-core-directory` | This is the relative directory where the generated Redux core file will be placed (e.g src/redux). It is recommended to leave this as the default.                                   | src/redux          |
-|`-h, --help`                 | Output help usage information.                                                                                                                                                       |                    |
+|`-n, --name`                 | This is the lower kebab case name of the feature/component you would like to generate (e.g. kebab-example-name).                                                                     | `kebab-example-name` |
+|`-d, --directory`            | This is the relative directory where the generated component will be placed (e.g src/components).                                                                                    | `src/components`     |
+|`-N, --native`               | If you wish to generate code for React-Native, add this parameter - else React web code will be generated.                                                                           | `false`              |
+|`-r, --redux`                | If you wish to generate Redux code in the duck pattern, add this parameter - else regular React code will be generated.                                                              | `false`              |
+|`-o, --omit-comments`        | If you wish to hide the comments within the generated files, add this parameter - else descriptive comments will be left in the generated code.                                      | `false`              |
+|`-R, --redux-core`           | If you would like to generate the Redux core files (`store`, `root-reducer`, and `action-creator`), add this parameter. These files are used to connect your application with Redux. | `false`              |
+|`-D, --redux-core-directory` | This is the relative directory where the generated Redux core file will be placed (e.g src/redux). It is recommended to leave this as the default.                                   | `src/redux`          |
+|`-h, --help`                 | Output help usage information.                                                                                                                                                       |                      |
 
 
 ## Generated Output Example (React)
@@ -103,8 +103,8 @@ Within these files the majority of the React web code will be completed for you 
 functionality and general best practices.
 
 _IMPORTANT NOTE:_
-* _Remember to add generated reducers to the root reducer, which is usually located in 'src/redux/root-reducer.js_
-* _Remember to add generated style sheets to the main style sheet, which is usually located in 'src/index.scss_
+* _Remember to add generated reducers to the root reducer, which is usually located in `src/redux/root-reducer.js`_
+* _Remember to add generated style sheets to the main style sheet, which is usually located in `src/index.scss`_
 
 ## Generated Output Example (Redux core files)
 
@@ -132,5 +132,4 @@ Within these files the majority of the React-Redux core code will be completed f
 reducers and general best practices.
 
 _IMPORTANT NOTE:_
-* _Remember to add generated reducers to the root reducer found in 'src/redux/root-reducer.js_
-* _Remember to add generated style sheets to the main style sheet found in 'src/index.scss_
+* _Remember to add your `store` to your Redux `Provider` where you're rendering your main app, which is usually located in `src/index.js`_
