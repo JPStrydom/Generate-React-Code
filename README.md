@@ -46,9 +46,9 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 
 |Parameter|Description|Default Value|
 |---------|-----------|-------|
-| <nobr>`-n, --name`</nobr>                 | This is the lower kebab case name of the feature/component you would like to generate (e.g. `kebab-example-name`).                                                                   | <nobr>`kebab-example-name`</nobr> |
-| <nobr>`-d, --directory`</nobr>            | This is the relative directory where the generated component will be placed (e.g `src/components`).                                                                                  | <nobr>`src/components`</nobr>     |
-| <nobr>`-N, --native`</nobr>               | If you wish to generate code for React-Native, add this parameter - else React web code will be generated.                                                                           | <nobr>`false`</nobr>              |
+| ``-n, --name``                 | This is the lower kebab case name of the feature/component you would like to generate (e.g. `kebab-example-name`).                                                                   | <nobr>`kebab-example-name`</nobr> |
+| ``-d, --directory``           | This is the relative directory where the generated component will be placed (e.g `src/components`).                                                                                  | <nobr>`src/components`</nobr>     |
+| ``-N, --native``               | If you wish to generate code for React-Native, add this parameter - else React web code will be generated.                                                                           | <nobr>`false`</nobr>              |
 | <nobr>`-r, --redux`</nobr>                | If you wish to generate Redux code in the duck pattern, add this parameter - else regular React code will be generated.                                                              | <nobr>`false`</nobr>              |
 | <nobr>`-o, --omit-comments`</nobr>        | If you wish to hide the comments within the generated files, add this parameter - else descriptive comments will be left in the generated code.                                      | <nobr>`false`</nobr>              |
 | <nobr>`-R, --redux-core`</nobr>           | If you would like to generate the Redux core files (`store`, `root-reducer`, and `action-creator`), add this parameter. These files are used to connect your application with Redux. | <nobr>`false`</nobr>              |
