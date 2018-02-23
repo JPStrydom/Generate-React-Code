@@ -42,7 +42,6 @@ function createAllTemplates(
 
         function getReduxCoreDirs(reduxCoreDirectory) {
             const templateDirectory = path.join(__dirname, 'templates', 'redux-core');
-            // TODO: Might have to alter the generated directory based on where the npm package is placed
             const generatedDirectory = path.join(__dirname, '..', '..', reduxCoreDirectory);
 
             if (!fs.existsSync(generatedDirectory)) {
