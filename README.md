@@ -111,7 +111,6 @@ Given the following example code generation command:
 npm run gen-react-code -- -R
 ```
 The following file/folder structure will be generated (_take note that adding the `-R` parameter will cause only the
-
 core files to be generated, irrespective of the other parameters_):
 ```
 project
