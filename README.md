@@ -21,27 +21,24 @@ _IMPORTANT NOTE:_
 ## Installation
 
 To install and save this npm package, navigate to your project's root directory in console and execute the following command:
-```
+```shell
 npm install generate-react-code --save-dev
 ```
 
 Then add the following script to your `packages.json` file:
 
-```
+```json
 {
-  ...
   "scripts": {
-    ...
     "gen-react-code": "node node_modules/generate-react-code"
   },
-  ...
 }
 ```
 
 ## Generation Command
 
 The following command can be used to generate code:
-```
+```shell
 npm run gen-react-code -- -n example-component -d src/example/dir -r
 ```
 
@@ -49,20 +46,20 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 
 |Parameter|Description|Default Value|
 |---------|-----------|-------|
-|`-n, --name`                 | This is the lower kebab case name of the feature/component you would like to generate (e.g. kebab-example-name).                                                                     | `kebab-example-name` |
-|`-d, --directory`            | This is the relative directory where the generated component will be placed (e.g src/components).                                                                                    | `src/components`     |
+|<nobr>`-n, --name`</nobr>    | This is the lower kebab case name of the feature/component you would like to generate (e.g. `kebab-example-name`).                                                                   | `kebab-example-name` |
+|`-d, --directory`            | This is the relative directory where the generated component will be placed (e.g `src/components`).                                                                                  | `src/components`     |
 |`-N, --native`               | If you wish to generate code for React-Native, add this parameter - else React web code will be generated.                                                                           | `false`              |
 |`-r, --redux`                | If you wish to generate Redux code in the duck pattern, add this parameter - else regular React code will be generated.                                                              | `false`              |
 |`-o, --omit-comments`        | If you wish to hide the comments within the generated files, add this parameter - else descriptive comments will be left in the generated code.                                      | `false`              |
 |`-R, --redux-core`           | If you would like to generate the Redux core files (`store`, `root-reducer`, and `action-creator`), add this parameter. These files are used to connect your application with Redux. | `false`              |
-|`-D, --redux-core-directory` | This is the relative directory where the generated Redux core file will be placed (e.g src/redux). It is recommended to leave this as the default.                                   | `src/redux`          |
+|`-D, --redux-core-directory` | This is the relative directory where the generated Redux core file will be placed (e.g `src/redux`). It is recommended to leave this as the default.                                 | `src/redux`          |
 |`-h, --help`                 | Output help usage information.                                                                                                                                                       |                      |
 
 
 ## Generated Output Example (React)
 
 Given the following example code generation command:
-```
+```shell
 npm run gen-react-code -- -n example-component -d src/components -N
 ```
 The following file/folder structure will be generated (_take note that the `example-component` directory is generated without you having to specify it explicitly_):
