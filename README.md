@@ -79,7 +79,7 @@ functionality and general best practices.
 ## Generated Output Example (React with Redux)
 
 Given the following example code generation command:
-```
+```shell
 npm run gen-react-code -- -n example-component -d src/components -r
 ```
 The following file/folder structure will be generated (_take note that the `example-component` directory is generated without you having to specify it explicitly_):
@@ -107,7 +107,7 @@ _IMPORTANT NOTE:_
 ## Generated Output Example (Redux core files)
 
 Given the following example code generation command:
-```
+```shell
 npm run gen-react-code -- -R
 ```
 The following file/folder structure will be generated (_take note that adding the `-R` parameter will cause only the
