@@ -31,7 +31,7 @@ Then add the following script to your `packages.json` file:
 {
   "scripts": {
     "gen-react-code": "node node_modules/generate-react-code"
-  },
+  }
 }
 ```
 
