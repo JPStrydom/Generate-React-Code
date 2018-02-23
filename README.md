@@ -46,14 +46,14 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 
 |Parameter|Description|Default Value|
 |---------|-----------|-------|
-| `-n, --name`                 | This is the lower kebab case name of the feature/component<br>you would like to generate (e.g. `kebab-example-name`).                                                                      | `kebab-example-name` |
-| `-d, --directory`            | This is the relative directory where the generated component<br>will be placed (e.g `src/components`).                                                                                     | `src/components`     |
-| `-N, --native`               | If you wish to generate code for React-Native, add this parameter<br>- else React web code will be generated.                                                                              | `false`              |
-| `-r, --redux`                | If you wish to generate Redux code in the duck pattern, add this<br>parameter - else regular React code will be generated.                                                                 | `false`              |
-| `-o, --omit-comments`        | If you wish to hide the comments within the generated files, add<br>this parameter - else descriptive comments will be left in the generated code.                                         | `false`              |
-| `-R, --redux-core`           | If you would like to generate the Redux core files<br>(`store`, `root-reducer`, and `action-creator`), add this parameter.<br>These files are used to connect your application with Redux. | `false`              |
-| `-D, --redux-core-directory` | This is the relative directory where the generated Redux core<br>file will be placed (e.g `src/redux`). It is recommended to leave this as the default.                                    | `src/redux`          |
-| `-h, --help`                 | Output help usage information.                                                                                                                                                             |                      |
+| `-n` OR<br>`--name`                 | This is the lower kebab case name of the feature/component<br>you would like to generate (e.g. `kebab-example-name`).                                                                      | `kebab-example-name` |
+| `-d` OR<br>`--directory`            | This is the relative directory where the generated component<br>will be placed (e.g `src/components`).                                                                                     | `src/components`     |
+| `-N` OR<br>`--native`               | If you wish to generate code for React-Native, add this parameter<br>- else React web code will be generated.                                                                              | `false`              |
+| `-r` OR<br>`--redux`                | If you wish to generate Redux code in the duck pattern, add this<br>parameter - else regular React code will be generated.                                                                 | `false`              |
+| `-o` OR<br>`--omit-comments`        | If you wish to hide the comments within the generated files, add<br>this parameter - else descriptive comments will be left in the generated code.                                         | `false`              |
+| `-R` OR<br>`--redux-core`           | If you would like to generate the Redux core files<br>(`store`, `root-reducer`, and `action-creator`), add this parameter.<br>These files are used to connect your application with Redux. | `false`              |
+| `-D` OR<br>`--redux-core-directory` | This is the relative directory where the generated Redux core<br>file will be placed (e.g `src/redux`). It is recommended to leave this as the default.                                    | `src/redux`          |
+| `-h` OR<br>`--help`                 | Output help usage information.                                                                                                                                                             |                      |
 
 
 ## Generated Output Example (React)
