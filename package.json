@@ -4,12 +4,12 @@
     "name": "JP Strydom",
     "email": "jpstrydom8@gmail.com"
   },
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An automated React code generation tool for React web, React-Native, and/or Redux in the ducks modular pattern.",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JPStrydom/Generate-Redux-Code.git"
+    "url": "https://github.com/JPStrydom/Generate-React-Code.git"
   },
   "bin": {
     "generate-react-code": "./index.js"
