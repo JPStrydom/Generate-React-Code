@@ -1,7 +1,7 @@
 Generate React Code
 ===================
 
-[![Build Status](https://travis-ci.org/JPStrydom/Generate-Redux-Code.svg?branch=master)](https://travis-ci.org/JPStrydom/Generate-Redux-Code)
+[![Build Status](https://travis-ci.org/JPStrydom/Generate-React-Code.svg?branch=master)](https://travis-ci.org/JPStrydom/Generate-React-Code)
 [![Coverage Status](https://coveralls.io/repos/github/JPStrydom/Generate-React-Code/badge.svg?branch=master)](https://coveralls.io/github/JPStrydom/Generate-React-Code?branch=master)
 
 This project utilises a scaffolding framework which generates React or React-Native code along with all the essential
@@ -63,7 +63,7 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 
 Given the following example code generation command:
 ```
-npm run gen-redux-code -- -n example-component -d src/components -N
+npm run gen-react-code -- -n example-component -d src/components -N
 ```
 The following file/folder structure will be generated (_take note that the `example-component` directory is generated without you having to specify it explicitly_):
 ```
@@ -82,7 +82,7 @@ functionality and general best practices.
 
 Given the following example code generation command:
 ```
-npm run gen-redux-code -- -n example-component -d src/components -r
+npm run gen-react-code -- -n example-component -d src/components -r
 ```
 The following file/folder structure will be generated (_take note that the `example-component` directory is generated without you having to specify it explicitly_):
 ```
@@ -110,10 +110,11 @@ _IMPORTANT NOTE:_
 
 Given the following example code generation command:
 ```
-npm run gen-redux-code -- -R
+npm run gen-react-code -- -R
 ```
 The following file/folder structure will be generated (_take note that adding the `-R` parameter will cause only the
-Redux core files to be generated, irrespective of the other parameters_):
+
+core files to be generated, irrespective of the other parameters_):
 ```
 project
 └───src
