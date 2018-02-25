@@ -52,7 +52,7 @@ program
 
 applyConfig(
     program,
-    ({ name, directory, native, redux, omitComments, reduxCore, reduxCoreDirectory }) => {
+    ({ name, directory, native = false, redux = false, omitComments = false, reduxCore = false, reduxCoreDirectory }) => {
         console.log(
             chalk.bold.underline.cyan('\nParameters:'),
             chalk.bold.magenta('\nname:\t\t\t'),

@@ -22,9 +22,9 @@ function applyConfig(params, callback) {
                 return callback(params);
             }
 
-            params.native = params.native || configData.native;
-            params.redux = params.redux || configData.redux;
-            params.omitComments = params.omitComments || configData.omitComments;
+            params.native = params.native || configData.native || false;
+            params.redux = params.redux || configData.redux || false;
+            params.omitComments = params.omitComments || configData.omitComments || false;
 
             console.log(
                 chalk.bold.underline.cyan('\nConfig Loaded:'),
