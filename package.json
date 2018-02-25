@@ -41,5 +41,24 @@
     "commander": "2.14.1",
     "lodash": "4.17.5",
     "shelljs": "0.8.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "node_modules/.bin/prettier --write --tab-width=4 --single-quote=true --print-width=100",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/tests/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ]
   }
 }
