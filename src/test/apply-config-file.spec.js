@@ -12,10 +12,11 @@ const ROOT_PATH = getRootPath();
 
 describe('Apply config file - Unit Test', () => {
     describe('applyConfig - Success Case', () => {
-        beforeEach(() =>
+        beforeEach(done =>
             fs.writeFile(
                 path.join(ROOT_PATH, 'grcc.json'),
-                '{ "native": true, "redux": true, "omitComments": true }'
+                '{ "native": true, "redux": true, "omitComments": true }',
+                done
             )
         );
         afterEach(() => shell.rm('-rf', path.join(ROOT_PATH, 'grcc.json')));
@@ -46,16 +47,17 @@ describe('Apply config file - Unit Test', () => {
         });
     });
 
-    /*describe('applyConfig - Fail Case', () => {
-        beforeEach(() =>
+    describe('applyConfig - Fail Case', () => {
+        beforeEach(done =>
             fs.writeFile(
                 path.join(ROOT_PATH, 'grcc.json'),
-                '{ "native": true, "redux": true, "omitComments": true }'
+                '{ "native": true, "redux": true, "omitComments": true }',
+                done
             )
         );
         afterEach(() => shell.rm('-rf', path.join(ROOT_PATH, 'grcc.json')));
 
-        it('should apply config file parameters to passed in parameters', () => {
+        it('should apply config file parameters to passed in parameters', done => {
             // TODO: Needs some tests
             const passedIn = {
                 name: 'some-name',
@@ -72,7 +74,8 @@ describe('Apply config file - Unit Test', () => {
 
             applyConfig(passedIn, params => {
                 expect(params).toEqual(expected);
+                done();
             });
         });
-    });*/
+    });
 });
