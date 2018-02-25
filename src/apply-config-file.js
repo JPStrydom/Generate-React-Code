@@ -6,8 +6,10 @@ const chalk = require('chalk');
 
 const { getRootPath } = require('./generator-utilities');
 
+const GRCC = 'grcc.json';
+
 function applyConfig(params, callback) {
-    const configDirectory = path.join(getRootPath(), 'grcc.json');
+    const configDirectory = path.join(getRootPath(), GRCC);
 
     if (fs.existsSync(configDirectory)) {
         fs.readFile(configDirectory, 'utf8', (err, data) => {
