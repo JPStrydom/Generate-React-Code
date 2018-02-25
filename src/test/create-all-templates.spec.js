@@ -24,11 +24,11 @@ describe('Create All Templates - Unit Test', () => {
                     fs.existsSync(path.join(ROOT_PATH, directory, name, `${name}.view.js`))
                 ).toBeTruthy();
                 done();
-            }, 1000);
+            }, 500);
         });
     });
 
     afterAll(() => {
-        shell.rm('-rf', path.join(ROOT_PATH, 'some-complete-template'));
+        setTimeout(() => shell.rm('-rf', path.join(ROOT_PATH, 'some-complete-template')), 1000);
     });
 });
