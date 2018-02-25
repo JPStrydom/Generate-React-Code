@@ -379,7 +379,7 @@ describe('Generator Utils - Unit Test', () => {
                 'resolvePath:',
                 resolvePath
                     .split('/')
-                    .slice(0, 9)
+                    .splice(0, resolvePath.split('/').indexOf('node_modules'))
                     .join('/')
             );
 
@@ -387,7 +387,7 @@ describe('Generator Utils - Unit Test', () => {
 
             const expected = `${resolvePath
                 .split('/')
-                .slice(0, 9)
+                .splice(0, resolvePath.split('/').indexOf('node_modules'))
                 .join('/')}/`;
 
             expect(actual).toEqual(expected);
