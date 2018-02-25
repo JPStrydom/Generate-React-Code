@@ -32,7 +32,7 @@ Then add the following script to your `packages.json` file:
 ```json
 {
   "scripts": {
-    "gen-react-code": "node node_modules/generate-react-code"
+    "gen-react-code": "generate-react-code"
   }
 }
 ```
@@ -43,6 +43,8 @@ The following command can be used to generate code:
 ```shell
 npm run gen-react-code -- -n example-component -d src/example/dir -r
 ```
+![Demo](gen-react-code-demo.gif)
+
 
 ## Command Parameter Description:
 

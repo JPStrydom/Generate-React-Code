@@ -4,16 +4,21 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 
+const { getRootPath } = require('./generator-utilities');
+
+const GRCC = 'grcc.json';
+
 function applyConfig(params, callback) {
-    const configDirectory = path.join(__dirname, '..', '..', 'grcc.json');
+    const configDirectory = path.join(getRootPath(), GRCC);
 
     if (fs.existsSync(configDirectory)) {
         fs.readFile(configDirectory, 'utf8', (err, data) => {
             if (err) throw err;
 
-            const configData = JSON.parse(data);
-
-            if (!configData) {
+            let configData;
+            try {
+                configData = JSON.parse(data) || null;
+            } catch (error) {
                 console.log(
                     chalk.red('Error reading config file at'),
                     chalk.gray(configDirectory),
@@ -39,7 +44,6 @@ function applyConfig(params, callback) {
             return callback(params);
         });
     } else {
-
         return callback(params);
     }
 }
