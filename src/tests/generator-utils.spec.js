@@ -429,6 +429,36 @@ describe('Generator Utils - Unit Test', () => {
 
             createTemplate(testTemplate, testPlaceHolder, false, assert);
         });
+
+        it('should create template without comments', done => {
+            const name = 'some-directory-create-template-without-comments';
+            const templatePath = path.join(ROOT_PATH, 'templates', 'web', 'react');
+            const directory = path.join(ROOT_PATH, name);
+
+            if (!fs.existsSync(directory)) {
+                shell.mkdir('-p', path.join(directory));
+            }
+
+            const testTemplate = {
+                template: path.join(templatePath, 'template.view.js'),
+                generated: path.join(directory, `${name}.view.js`)
+            };
+
+            const testPlaceHolder = getAllPlaceholderNames(name);
+
+            function assert(err, msg) {
+                expect(err).toEqual(null);
+                expect(msg).toEqual('code generated from template');
+                expect(fs.existsSync(directory)).toBeTruthy();
+                expect(fs.existsSync(testTemplate.generated)).toBeTruthy();
+                expect(fs.readFileSync(testTemplate.generated, 'utf8')).not.toContain(
+                    'Import all external modules here.'
+                );
+                done();
+            }
+
+            createTemplate(testTemplate, testPlaceHolder, true, assert);
+        });
     });
 
     //TEST CLEAN UP
@@ -438,5 +468,7 @@ describe('Generator Utils - Unit Test', () => {
         shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_native'));
         shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_redux'));
         shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_redux_core'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some-directory-create-template'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some-directory-create-template-without-comments'));
     });
 });
