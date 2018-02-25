@@ -28,7 +28,13 @@ function createAllTemplates(
     const placeholderNames = getAllPlaceholderNames(name);
 
     _.forEach(directories, (directory, key) => {
-        createTemplate(directory, placeholderNames, omitComments);
+        createTemplate(directory, placeholderNames, omitComments, () => {
+            console.log(
+                chalk.bold.blue(key),
+                chalk.bold.green('file successfully created in'),
+                chalk.bold.gray(directory.generated)
+            );
+        });
     });
 }
 

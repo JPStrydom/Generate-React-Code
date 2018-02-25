@@ -141,7 +141,7 @@ function removeComments(s) {
     return s.replace(/([\s\S]*?)\/\*[\s\S]*?\*\//g, '$1');
 }
 
-function createTemplate(directory, placeholderNames, omitComments) {
+function createTemplate(directory, placeholderNames, omitComments, callback) {
     fs.readFile(directory.template, 'utf8', (err, data) => {
         if (err) throw err;
 
@@ -155,11 +155,7 @@ function createTemplate(directory, placeholderNames, omitComments) {
 
         fs.writeFile(directory.generated, data, err => {
             if (err) throw err;
-            console.log(
-                chalk.bold.blue(key),
-                chalk.bold.green('file successfully created in'),
-                chalk.bold.gray(directory.generated)
-            );
+            callback();
         });
     });
 }
