@@ -11,7 +11,12 @@ const shell = require('shelljs');
 
 const resolvePath = require.resolve('commander');
 
-const { getRootPath, getAllDirectories, getAllPlaceholderNames } = require('../generator-utils');
+const {
+    getRootPath,
+    getAllDirectories,
+    getAllPlaceholderNames,
+    createTemplate
+} = require('../generator-utils');
 
 const ROOT_PATH = getRootPath();
 
@@ -391,6 +396,38 @@ describe('Generator Utils - Unit Test', () => {
                 .join('/')}/`;
 
             expect(actual).toEqual(expected);
+        });
+    });
+
+    describe('createTemplate', () => {
+        it('should create template with comments', done => {
+            const name = 'some-directory-create-template';
+            const templatePath = path.join(ROOT_PATH, 'templates', 'web', 'react');
+            const directory = path.join(ROOT_PATH, name);
+
+            if (!fs.existsSync(directory)) {
+                shell.mkdir('-p', path.join(directory));
+            }
+
+            const testTemplate = {
+                template: path.join(templatePath, 'template.view.js'),
+                generated: path.join(directory, `${name}.view.js`)
+            };
+
+            const testPlaceHolder = getAllPlaceholderNames(name);
+
+            function assert(err, msg) {
+                expect(err).toEqual(null);
+                expect(msg).toEqual('code generated from template');
+                expect(fs.existsSync(directory)).toBeTruthy();
+                expect(fs.existsSync(testTemplate.generated)).toBeTruthy();
+                expect(fs.readFileSync(testTemplate.generated, 'utf8')).toContain(
+                    'Import all external modules here.'
+                );
+                done();
+            }
+
+            createTemplate(testTemplate, testPlaceHolder, false, assert);
         });
     });
 

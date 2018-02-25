@@ -116,7 +116,6 @@ function getReactComponentDirs(name, directory, native, redux) {
             template: path.join(templateDirectory, 'test', 'template.container.spec.js'),
             generated: path.join(generatedDirectory, 'test', `${name}.container.spec.js`)
         },
-
         reducer: {
             template: path.join(templateDirectory, 'template.reducer.js'),
             generated: path.join(generatedDirectory, `${name}.reducer.js`)
@@ -140,7 +139,11 @@ function getAllPlaceholderNames(name) {
     return { kebab: name, lowerCamel, upperCamel };
 }
 
-function createTemplate(directory, placeholderNames, omitComments) {
+function removeComments(s) {
+    return s.replace(/([\s\S]*?)\/\*[\s\S]*?\*\//g, '$1');
+}
+
+function createTemplate(directory, placeholderNames, omitComments, cb) {
     fs.readFile(directory.template, 'utf8', (err, data) => {
         if (err) throw err;
 
@@ -154,12 +157,9 @@ function createTemplate(directory, placeholderNames, omitComments) {
 
         fs.writeFile(directory.generated, data, err => {
             if (err) throw err;
+            return cb(err, 'code generated from template');
         });
     });
-
-    function removeComments(s) {
-        return s.replace(/([\s\S]*?)\/\*[\s\S]*?\*\//g, '$1');
-    }
 }
 
 function getRootPath() {
