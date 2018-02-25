@@ -4,7 +4,7 @@
     "name": "JP Strydom",
     "email": "jpstrydom8@gmail.com"
   },
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "An automated React code generation tool for React web, React-Native, and/or Redux in the ducks modular pattern.",
   "license": "ISC",
   "repository": {
