@@ -5,7 +5,7 @@
 const program = require('commander');
 const chalk = require('chalk');
 
-const createAllTemplates = require('./create-all-templates');
+const createAllTemplates = require('./src/create-all-templates');
 const applyConfig = require('./apply-config-file');
 
 const DEFAULT_NAME = 'kebab-example-name';
