@@ -3,7 +3,6 @@
 const fs = require('fs');
 const shell = require('shelljs');
 const path = require('path');
-const chalk = require('chalk');
 
 const resolvePath = require.resolve('commander');
 const NODE_MODULES = 'node_modules';
