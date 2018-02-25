@@ -5,7 +5,6 @@ const path = require('path');
 const shell = require('shelljs');
 
 const { getRootPath } = require('../generator-utilities');
-
 const createAllTemplates = require('../create-all-templates');
 
 const ROOT_PATH = getRootPath();
@@ -29,6 +28,6 @@ describe('Create All Templates - Unit Test', () => {
     });
 
     afterAll(() => {
-        setTimeout(() => shell.rm('-rf', path.join(ROOT_PATH, 'some-complete-template')), 1000);
+        shell.rm('-rf', path.join(ROOT_PATH, 'some-complete-template'));
     });
 });
