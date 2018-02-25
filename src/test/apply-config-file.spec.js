@@ -34,6 +34,25 @@ describe('Apply config file - Unit Test', () => {
             );
         });
 
+        it('should not overwrite passed in parameters when a user specifies them', done => {
+            const passedIn = {
+                name: 'some-name',
+                native: true,
+                redux: true,
+                omitComments: true
+            };
+            fs.writeFile(
+                path.join(ROOT_PATH, 'grcc.json'),
+                '{ "native": false, "redux": false, "omitComments": false }',
+                () =>
+                    applyConfig(passedIn, params => {
+                        expect(params).toEqual(passedIn);
+                        shell.rm('-rf', path.join(ROOT_PATH, 'grcc.json'));
+                        done();
+                    })
+            );
+        });
+
         it('should return unaltered parameters when the config file does not exist', done => {
             const passedIn = {
                 name: 'some-name',
