@@ -16,10 +16,6 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
         Add all required function binding here. If no binding is required, the constructor may be omitted.
         */
         this.renderTextExample = this.renderTextExample.bind(this);
-
-        /*
-        NOTE: Do NOT use 'this.state'! State management is wat Redux is used for.
-        */
     }
 
     componentDidMount() {

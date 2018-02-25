@@ -26,12 +26,7 @@ function createAllTemplates(
     const placeholderNames = getAllPlaceholderNames(name);
 
     _.forEach(directories, (directory, key) => {
-        createTemplate(directory, placeholderNames, omitComments);
-        console.log(
-            chalk.bold.blue(key),
-            chalk.bold.green('file successfully created in'),
-            chalk.bold.gray(directory.generated)
-        );
+        createTemplate(directory, key, placeholderNames, omitComments);
     });
 
     function getAllDirectories(name, directory, native, redux, reduxCore, reduxCoreDirectory) {
@@ -172,7 +167,7 @@ function createAllTemplates(
         }
     }
 
-    function createTemplate(directory, placeholderNames, omitComments) {
+    function createTemplate(directory, key, placeholderNames, omitComments) {
         fs.readFile(directory.template, 'utf8', (err, data) => {
             if (err) throw err;
 
@@ -186,6 +181,12 @@ function createAllTemplates(
 
             fs.writeFile(directory.generated, data, err => {
                 if (err) throw err;
+
+                console.log(
+                    chalk.bold.blue(key),
+                    chalk.bold.green('file successfully created in'),
+                    chalk.bold.gray(directory.generated)
+                );
             });
         });
 

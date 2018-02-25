@@ -13,6 +13,8 @@ generate the Redux core files needed for React-Redux projects (`store`, `root-re
 This generated code conforms to the [Air BnB style guide's](https://github.com/airbnb/javascript) naming and coding-style
 conventions, and it is thus highly recommended to make use of this tool when creating new React or React-Redux components.
 
+This package also allows users to add a configuration file containing default parameters. That way users would not have to specify these parameters every time they wish to generate code.
+
 _IMPORTANT NOTE:_
 * _This package assumes the use of [__sass__](https://github.com/sass/sass) for React web projects._
 * _This package assumes the use of [__Redux-Thunk__](https://github.com/gaearon/redux-thunk) as a Redux middleware._
@@ -56,8 +58,27 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 | **`-D`** OR<br>**`--redux-core-directory`** | This is the relative directory where the generated Redux core file will be placed (e.g `src/redux`). It is recommended to leave this as the default.                                 | **`src/redux`**          |
 | **`-h`** OR<br>**`--help`**                 | Output help usage information.                                                                                                                                                       |                          |
 
+## Configuration File
 
-## Generated Output Example (React)
+If you wish to store default parameters for your project, you'll have to add an optional `grcc.json` (_generate react code config_) file to your project's root directory.
+The file must have the following structure:
+```json
+{
+  "native": true,
+  "redux": true,
+  "omitComments": true
+}
+```
+
+_IMPORTANT NOTE:_
+* _All these parameters are `false` by default. The parameters you wish to remain so, may be omitted from the file._
+* _If you specify any of these parameters in your generation command, the generation command parameters will take priority over the ones in the `grcc.json` file._
+* _The `grcc.json` file is completely optional and does not have to be added._
+
+
+## Generated Output Examples
+
+### React Only Example
 
 Given the following example code generation command:
 ```shell
@@ -76,7 +97,7 @@ project
 Within these files the majority of the React-Native code will be completed for you - which contains detailed comments on how to add your
 functionality and general best practices.
 
-## Generated Output Example (React with Redux)
+### React With Redux Example
 
 Given the following example code generation command:
 ```shell
@@ -104,7 +125,7 @@ _IMPORTANT NOTE:_
 * _Remember to add generated reducers to the root reducer, which is usually located in `src/redux/root-reducer.js`_
 * _Remember to add generated style sheets to the main style sheet, which is usually located in `src/index.scss`_
 
-## Generated Output Example (Redux core files)
+### Redux Core Files Example
 
 Given the following example code generation command:
 ```shell

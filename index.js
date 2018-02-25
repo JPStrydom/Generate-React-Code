@@ -6,9 +6,10 @@ const program = require('commander');
 const chalk = require('chalk');
 
 const createAllTemplates = require('./create-all-templates');
+const applyConfig = require('./apply-config-file');
 
 const DEFAULT_NAME = 'kebab-example-name';
-const DEFAULT_COMPONT_DIRECTORY = 'src/components';
+const DEFAULT_COMPONENT_DIRECTORY = 'src/components';
 const DEFAULT_REDUX_CORE_DIRECTORY = 'src/redux';
 
 program
@@ -19,8 +20,8 @@ program
     )
     .option(
         '-d, --directory [directory]',
-        `This is the relative directory where the generated component will be placed (e.g ${DEFAULT_COMPONT_DIRECTORY}).`,
-        DEFAULT_COMPONT_DIRECTORY
+        `This is the relative directory where the generated component will be placed (e.g ${DEFAULT_COMPONENT_DIRECTORY}).`,
+        DEFAULT_COMPONENT_DIRECTORY
     )
     .option(
         '-N, --native [native]',
@@ -49,25 +50,36 @@ program
     )
     .parse(process.argv);
 
-const { name, directory, native, redux, omitComments, reduxCore, reduxCoreDirectory } = program;
+applyConfig(
+    program,
+    ({ name, directory, native = false, redux = false, omitComments = false, reduxCore = false, reduxCoreDirectory }) => {
+        console.log(
+            chalk.bold.underline.cyan('\nParameters:'),
+            chalk.bold.magenta('\nname:\t\t\t'),
+            chalk.yellow(name),
+            chalk.bold.magenta('\ndirectory:\t\t'),
+            chalk.yellow(directory),
+            chalk.bold.magenta('\nnative:\t\t\t'),
+            chalk.yellow(native),
+            chalk.bold.magenta('\nredux:\t\t\t'),
+            chalk.yellow(redux),
+            chalk.bold.magenta('\nomitComments:\t\t'),
+            chalk.yellow(omitComments),
+            chalk.bold.magenta('\nreduxCore:\t\t'),
+            chalk.yellow(reduxCore),
+            chalk.bold.magenta('\nreduxCoreDirectory:\t'),
+            chalk.yellow(reduxCoreDirectory),
+            '\n'
+        );
 
-console.log(
-    chalk.bold.underline.cyan('\nParameters:'),
-    chalk.bold.magenta('\nname:\t\t\t'),
-    chalk.yellow(name),
-    chalk.bold.magenta('\ndirectory:\t\t'),
-    chalk.yellow(directory),
-    chalk.bold.magenta('\nnative:\t\t\t'),
-    chalk.yellow(native),
-    chalk.bold.magenta('\nredux:\t\t\t'),
-    chalk.yellow(redux),
-    chalk.bold.magenta('\nomitComments:\t\t'),
-    chalk.yellow(omitComments),
-    chalk.bold.magenta('\nreduxCore:\t\t'),
-    chalk.yellow(reduxCore),
-    chalk.bold.magenta('\nreduxCoreDirectory:\t'),
-    chalk.yellow(reduxCoreDirectory),
-    '\n'
+        createAllTemplates(
+            name,
+            directory,
+            native,
+            redux,
+            omitComments,
+            reduxCore,
+            reduxCoreDirectory
+        );
+    }
 );
-
-createAllTemplates(name, directory, native, redux, omitComments, reduxCore, reduxCoreDirectory);
