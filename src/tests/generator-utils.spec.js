@@ -282,6 +282,78 @@ describe('Generator Utils - Unit Test', () => {
                 });
             });
         });
+
+        describe('for getReduxCoreDirs', () => {
+            it('should return all templates with directories, set with name and create folders for redux core', () => {
+                const directory = 'some_directory_redux_core';
+
+                const actual = getAllDirectories(null, null, null, null, true, directory);
+
+                const templates = path.join(ROOT_PATH, 'templates', 'redux-core');
+
+                const expected = {
+                    store: {
+                        template: path.join(templates, 'store.js'),
+                        generated: path.join(ROOT_PATH, directory, 'store.js')
+                    },
+                    rootReducer: {
+                        template: path.join(templates, 'root-reducer.js'),
+                        generated: path.join(ROOT_PATH, directory, 'root-reducer.js')
+                    },
+                    createAction: {
+                        template: path.join(templates, 'action-creator', 'create-action.js'),
+                        generated: path.join(
+                            ROOT_PATH,
+                            directory,
+                            'action-creator',
+                            'create-action.js'
+                        )
+                    },
+                    buildActionType: {
+                        template: path.join(templates, 'action-creator', 'build-action-type.js'),
+                        generated: path.join(
+                            ROOT_PATH,
+                            directory,
+                            'action-creator',
+                            'build-action-type.js'
+                        )
+                    },
+                    createActionTest: {
+                        template: path.join(
+                            templates,
+                            'action-creator',
+                            'test',
+                            'create-action.spec.js'
+                        ),
+                        generated: path.join(
+                            ROOT_PATH,
+                            directory,
+                            'action-creator',
+                            'test',
+                            'create-action.spec.js'
+                        )
+                    },
+                    buildActionTypeTest: {
+                        template: path.join(
+                            templates,
+                            'action-creator',
+                            'test',
+                            'build-action-type.spec.js'
+                        ),
+                        generated: path.join(
+                            ROOT_PATH,
+                            directory,
+                            'action-creator',
+                            'test',
+                            'build-action-type.spec.js'
+                        )
+                    }
+                };
+
+                expect(actual).toEqual(expected);
+                expect(fs.existsSync(path.join(ROOT_PATH, directory))).toBeTruthy();
+            });
+        });
     });
 
     describe('getRootPath', () => {
