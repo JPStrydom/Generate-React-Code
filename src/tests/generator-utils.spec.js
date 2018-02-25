@@ -7,6 +7,7 @@
 
 const path = require('path');
 const fs = require('fs');
+const shell = require('shelljs');
 
 const resolvePath = require.resolve('commander');
 
@@ -391,5 +392,14 @@ describe('Generator Utils - Unit Test', () => {
 
             expect(actual).toEqual(expected);
         });
+    });
+
+    //TEST CLEAN UP
+    afterAll(() => {
+        console.log('TEST CLEAN UP AT END!!!!!!!!!!!!!!');
+        shell.rm('-rf', path.join(ROOT_PATH, 'some_directory'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_native'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_redux'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_redux_core'));
     });
 });
