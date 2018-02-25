@@ -1,10 +1,17 @@
 {
   "name": "generate-react-code",
+  "version": "1.2.2",
   "author": {
     "name": "JP Strydom",
     "email": "jpstrydom8@gmail.com"
   },
-  "version": "1.2.1",
+  "contributors": [
+    {
+      "name": "Muzikayise Flynn Buthelezi (zuluCoda)",
+      "email": "muzi@mfbproject.co.za",
+      "url": "https://mfbproject.co.za"
+    }
+  ],
   "description": "An automated React code generation tool for React web, React-Native, and/or Redux in the ducks modular pattern.",
   "license": "ISC",
   "repository": {
@@ -24,15 +31,16 @@
   ],
   "scripts": {
     "gen-react-code": "node index.js",
-    "test": "mocha --reporter spec",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec test/*",
-    "prettier": "prettier --write --tab-width=4 --single-quote=true --print-width=100 \"**/*.js\""
+    "test": "jest --coverage",
+    "test-watch": "jest --watch --verbose",
+    "prettier": "prettier --write --tab-width=4 --single-quote=true --print-width=100 \"**/*.js\"",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
-    "chai": "4.1.2",
     "coveralls": "3.0.0",
-    "istanbul": "0.4.5",
-    "mocha": "5.0.1",
+    "husky": "0.14.3",
+    "jest": "22.2.2",
+    "lint-staged": "6.1.0",
     "prettier": "1.10.2"
   },
   "dependencies": {
@@ -40,5 +48,24 @@
     "commander": "2.14.1",
     "lodash": "4.17.5",
     "shelljs": "0.8.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "node_modules/.bin/prettier --write --tab-width=4 --single-quote=true --print-width=100",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/test/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ]
   }
 }
