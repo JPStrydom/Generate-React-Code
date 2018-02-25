@@ -375,20 +375,11 @@ describe('Generator Utilities - Unit Test', () => {
 
     describe('getRootPath', () => {
         it('should return root path', () => {
-            console.log(
-                'resolvePath:',
-                resolvePath
-                    .split('/')
-                    .splice(0, resolvePath.split('/').indexOf('node_modules'))
-                    .join('/')
-            );
+            console.log('resolvePath:', resolvePath.slice(0, resolvePath.indexOf('node_modules')));
 
             const actual = getRootPath();
 
-            const expected = `${resolvePath
-                .split('/')
-                .splice(0, resolvePath.split('/').indexOf('node_modules'))
-                .join('/')}/`;
+            const expected = resolvePath.slice(0, resolvePath.indexOf('node_modules'));
 
             expect(actual).toEqual(expected);
         });
