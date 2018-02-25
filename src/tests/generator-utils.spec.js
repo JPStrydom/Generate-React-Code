@@ -10,7 +10,7 @@ const fs = require('fs');
 
 const resolvePath = require.resolve('commander');
 
-const { getRootPath, getAllDirectories } = require('../generator-utils');
+const { getRootPath, getAllDirectories, getAllPlaceholderNames } = require('../generator-utils');
 
 const ROOT_PATH = getRootPath();
 
@@ -353,6 +353,22 @@ describe('Generator Utils - Unit Test', () => {
                 expect(actual).toEqual(expected);
                 expect(fs.existsSync(path.join(ROOT_PATH, directory))).toBeTruthy();
             });
+        });
+    });
+
+    describe('getAllPlaceholderNames', () => {
+        it('should return kebab case name', () => {
+            const name = 'some-kebab-case-name';
+
+            const actual = getAllPlaceholderNames(name);
+
+            const expected = {
+                kebab: name,
+                lowerCamel: 'someKebabCaseName',
+                upperCamel: 'SomeKebabCaseName'
+            };
+
+            expect(actual).toEqual(expected);
         });
     });
 

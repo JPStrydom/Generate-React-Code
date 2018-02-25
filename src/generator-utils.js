@@ -130,15 +130,14 @@ function getReactComponentDirs(name, directory, native, redux) {
     return Object.assign(reactDirs, reduxDirs);
 }
 
+function kebabToCamel(s) {
+    return s.replace(/-\w/g, m => m[1].toUpperCase());
+}
+
 function getAllPlaceholderNames(name) {
     const lowerCamel = kebabToCamel(name);
     const upperCamel = `${lowerCamel.charAt(0).toUpperCase()}${lowerCamel.slice(1)}`;
-
     return { kebab: name, lowerCamel, upperCamel };
-
-    function kebabToCamel(s) {
-        return s.replace(/-\w/g, m => m[1].toUpperCase());
-    }
 }
 
 function createTemplate(directory, placeholderNames, omitComments) {
