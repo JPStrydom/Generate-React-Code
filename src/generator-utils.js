@@ -9,6 +9,7 @@ const path = require('path');
 
 const resolvePath = require.resolve('commander');
 const NODE_MODULES = 'node_modules';
+const ROOT_PATH = getRootPath();
 
 
 function getAllDirectories(name, directory, native, redux, reduxCore, reduxCoreDirectory) {
@@ -86,8 +87,8 @@ function getReactComponentDirs(name, directory, native, redux) {
   const subDir = native ? 'native' : 'web';
   const subSubDir = redux ? 'react-redux' : 'react';
 
-  const templateDirectory = path.join(__dirname, 'templates', subDir, subSubDir);
-  const generatedDirectory = path.join(__dirname, '..', '..', directory, name);
+  const templateDirectory = path.join(__dirname, '..', 'templates', subDir, subSubDir);
+  const generatedDirectory = path.join(ROOT_PATH, directory, name);
 
   if (!fs.existsSync(generatedDirectory)) {
     shell.mkdir('-p', path.join(generatedDirectory, 'test'));

@@ -3,53 +3,96 @@
  * mfbproject.co.za - muzi@mfbproject.co.za
  */
 
+'use strict';
+
 const path = require('path');
+const fs = require('fs');
 
 const resolvePath = require.resolve('commander');
 
-const { getRootPath } = require('../generator-utils');
+const { getRootPath, getAllDirectories } = require('../generator-utils');
+
+const ROOT_PATH = getRootPath();
 
 
 describe('Generator Utils - Unit Test', () => {
   describe('getAllDirectories', () => {
-    // it('should return all templates with directries set name', () => {
-    //   const name = 'some_name';
-    //   const directory = 'some_directory';
-    //   const templates = 'templates';
-    //
-    //   const actual = getAllDirectories(name, directory);
-    //
-    //   const expected = {
-    //     view: {
-    //       template: path.join(templates, 'template.view.js'),
-    //       generated: path.join(directory, `${name}.view.js`)
-    //     },
-    //     viewTest: {
-    //       template: path.join(templates, 'test', 'template.view.spec.js'),
-    //       generated: path.join(directory, 'test', `${name}.view.spec.js`)
-    //     },
-    //
-    //     container: {
-    //       template: path.join(templates, 'template.container.js'),
-    //       generated: path.join(directory, `${name}.container.js`)
-    //     },
-    //     containerTest: {
-    //       template: path.join(templates, 'test', 'template.container.spec.js'),
-    //       generated: path.join(directory, 'test', `${name}.container.spec.js`)
-    //     },
-    //
-    //     reducer: {
-    //       template: path.join(templates, 'template.reducer.js'),
-    //       generated: path.join(directory, `${name}.reducer.js`)
-    //     },
-    //     reducerTest: {
-    //       template: path.join(templates, 'test', 'template.reducer.spec.js'),
-    //       generated: path.join(directory, 'test', `${name}.reducer.spec.js`)
-    //     }
-    //   };
-    //
-    //   expect(actual).toEqual(expected);
-    // });
+    describe('for getReactComponentDirs', () => {
+      describe('for web', () => {
+        describe('NOT redux', () => {
+          it('should return all templates with directories set name and create folder name, with test', () => {
+            const name = 'some_name';
+            const directory = 'some_directory';
+
+            const actual = getAllDirectories(name, directory);
+
+            const templates = path.join(ROOT_PATH,'templates', 'web', 'react');
+            const folderName = name;
+            const expected = {
+              view: {
+                template: path.join(templates, 'template.view.js'),
+                generated: path.join(ROOT_PATH, directory, folderName, `${name}.view.js`)
+              },
+              viewTest: {
+                template: path.join(templates, 'test', 'template.view.spec.js'),
+                generated: path.join(ROOT_PATH, directory, folderName, 'test', `${name}.view.spec.js`)
+              },
+              stylesheet: {
+                template: path.join(templates, '_template.styles.scss'),
+                generated: path.join(ROOT_PATH, directory, folderName, `_${name}.styles.scss`)
+              }
+            };
+
+            expect(actual).toEqual(expected);
+            expect(fs.existsSync(path.join(ROOT_PATH, directory, folderName))).toBeTruthy();
+          });
+        });
+
+        describe('WITH redux', () => {
+          // it('should return all templates with directories set name', () => {
+          //   const name = 'some_name';
+          //   const directory = 'some_directory';
+          //
+          //   const actual = getAllDirectories(name, directory);
+          //
+          //   const templates = path.join(ROOT_PATH,'templates', 'web', 'react');
+          //   const expected = {
+          //     view: {
+          //       template: path.join(templates, 'template.view.js'),
+          //       generated: path.join(ROOT_PATH, directory, `${name}.view.js`)
+          //     },
+          //     viewTest: {
+          //       template: path.join(templates, 'test', 'template.view.spec.js'),
+          //       generated: path.join(ROOT_PATH, directory, 'test', `${name}.view.spec.js`)
+          //     },
+          //     stylesheet: {
+          //       template: path.join(templates, '_template.styles.scss'),
+          //       generated: path.join(ROOT_PATH, directory, `_${name}.styles.scss`)
+          //     },
+          //     container: {
+          //       template: path.join(templates, 'template.container.js'),
+          //       generated: path.join(ROOT_PATH, directory, `${name}.container.js`)
+          //     },
+          //     containerTest: {
+          //       template: path.join(templates, 'test', 'template.container.spec.js'),
+          //       generated: path.join(ROOT_PATH, directory, 'test', `${name}.container.spec.js`)
+          //     },
+          //
+          //     reducer: {
+          //       template: path.join(templates, 'template.reducer.js'),
+          //       generated: path.join(ROOT_PATH, directory, `${name}.reducer.js`)
+          //     },
+          //     reducerTest: {
+          //       template: path.join(templates, 'test', 'template.reducer.spec.js'),
+          //       generated: path.join(ROOT_PATH, directory, 'test', `${name}.reducer.spec.js`)
+          //     }
+          //   };
+          //
+          //   expect(actual).toEqual(expected);
+          // });
+        });
+      })
+    });
   });
 
   describe('getRootPath', () => {
