@@ -4,6 +4,13 @@
     "name": "JP Strydom",
     "email": "jpstrydom8@gmail.com"
   },
+  "contributors": [
+    {
+      "name": "Muzikayise Flynn Buthelezi (zuluCoda)",
+      "email": "muzi@mfbproject.co.za",
+      "url": "https://mfbproject.co.za"
+    }
+  ],
   "version": "1.1.1",
   "description": "An automated React code generation tool for React web, React-Native, and/or Redux in the ducks modular pattern.",
   "license": "ISC",
