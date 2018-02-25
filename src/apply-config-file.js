@@ -15,9 +15,10 @@ function applyConfig(params, callback) {
         fs.readFile(configDirectory, 'utf8', (err, data) => {
             if (err) throw err;
 
-            const configData = JSON.parse(data);
-
-            if (!configData) {
+            let configData;
+            try {
+                configData = JSON.parse(data) || null;
+            } catch (error) {
                 console.log(
                     chalk.red('Error reading config file at'),
                     chalk.gray(configDirectory),
