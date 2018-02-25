@@ -2,7 +2,11 @@
 
 const chalk = require('chalk');
 const _ = require('lodash');
-const { createTemplate, getAllDirectories, getAllPlaceholderNames } = require('./generator-utils');
+const {
+    createTemplate,
+    getAllDirectories,
+    getAllPlaceholderNames
+} = require('./generator-utilities');
 
 function createAllTemplates(
     name,

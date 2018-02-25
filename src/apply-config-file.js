@@ -39,7 +39,6 @@ function applyConfig(params, callback) {
             return callback(params);
         });
     } else {
-
         return callback(params);
     }
 }

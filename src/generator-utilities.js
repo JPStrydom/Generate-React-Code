@@ -1,7 +1,4 @@
-/**
- * Created by JP Strydom (JPStrydom) and  Muzikayise Flynn Buthelezi (zuluCoda) on 2018/01/27.
- * mfbproject.co.za - muzi@mfbproject.co.za
- */
+'use strict';
 
 const fs = require('fs');
 const shell = require('shelljs');

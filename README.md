@@ -43,7 +43,7 @@ The following command can be used to generate code:
 ```shell
 npm run gen-react-code -- -n example-component -d src/example/dir -r
 ```
-![Demo](zulu-coda-test-gen-react-code.gif)
+![Demo](gen-react-code-demo.gif)
 
 
 ## Command Parameter Description:

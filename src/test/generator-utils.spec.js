@@ -1,8 +1,3 @@
-/**
- * Created by JP Strydom (JPStrydom) and  Muzikayise Flynn Buthelezi (zuluCoda) on 2018/01/27.
- * mfbproject.co.za - muzi@mfbproject.co.za
- */
-
 'use strict';
 
 const path = require('path');
@@ -16,7 +11,7 @@ const {
     getAllDirectories,
     getAllPlaceholderNames,
     createTemplate
-} = require('../generator-utils');
+} = require('../generator-utilities');
 
 const ROOT_PATH = getRootPath();
 

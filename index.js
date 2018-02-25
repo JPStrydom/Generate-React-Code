@@ -6,7 +6,7 @@ const program = require('commander');
 const chalk = require('chalk');
 
 const createAllTemplates = require('./src/create-all-templates');
-const applyConfig = require('./apply-config-file');
+const applyConfig = require('./src/apply-config-file');
 
 const DEFAULT_NAME = 'kebab-example-name';
 const DEFAULT_COMPONENT_DIRECTORY = 'src/components';
@@ -52,7 +52,15 @@ program
 
 applyConfig(
     program,
-    ({ name, directory, native = false, redux = false, omitComments = false, reduxCore = false, reduxCoreDirectory }) => {
+    ({
+        name,
+        directory,
+        native = false,
+        redux = false,
+        omitComments = false,
+        reduxCore = false,
+        reduxCoreDirectory
+    }) => {
         console.log(
             chalk.bold.underline.cyan('\nParameters:'),
             chalk.bold.magenta('\nname:\t\t\t'),
