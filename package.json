@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "gen-react-code": "node index.js",
-    "test": "jest",
+    "test": "jest --coverage",
     "test-watch": "jest --watch --verbose",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec test/*",
     "prettier": "prettier --write --tab-width=4 --single-quote=true --print-width=100 \"**/*.js\"",
