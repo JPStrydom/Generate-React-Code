@@ -154,7 +154,7 @@ function createTemplate(directory, placeholderNames, omitComments, callback) {
 
         fs.writeFile(directory.generated, data, err => {
             if (err) throw err;
-            callback();
+            return callback(err, 'code generated from template');
         });
     });
 }
