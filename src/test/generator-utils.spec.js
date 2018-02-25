@@ -456,9 +456,7 @@ describe('Generator Utils - Unit Test', () => {
         });
     });
 
-    //TEST CLEAN UP
     afterAll(() => {
-        console.log('TEST CLEAN UP AT END!!!!!!!!!!!!!!');
         shell.rm('-rf', path.join(ROOT_PATH, 'some_directory'));
         shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_native'));
         shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_redux'));

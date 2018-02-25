@@ -3,6 +3,7 @@
 const fs = require('fs');
 const shell = require('shelljs');
 const path = require('path');
+const chalk = require('chalk');
 
 const resolvePath = require.resolve('commander');
 const NODE_MODULES = 'node_modules';
@@ -140,7 +141,7 @@ function removeComments(s) {
     return s.replace(/([\s\S]*?)\/\*[\s\S]*?\*\//g, '$1');
 }
 
-function createTemplate(directory, placeholderNames, omitComments, cb) {
+function createTemplate(directory, placeholderNames, omitComments) {
     fs.readFile(directory.template, 'utf8', (err, data) => {
         if (err) throw err;
 
@@ -154,7 +155,11 @@ function createTemplate(directory, placeholderNames, omitComments, cb) {
 
         fs.writeFile(directory.generated, data, err => {
             if (err) throw err;
-            return cb(err, 'code generated from template');
+            console.log(
+                chalk.bold.blue(key),
+                chalk.bold.green('file successfully created in'),
+                chalk.bold.gray(directory.generated)
+            );
         });
     });
 }
