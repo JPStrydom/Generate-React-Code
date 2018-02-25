@@ -15,7 +15,7 @@ const {
 
 const ROOT_PATH = getRootPath();
 
-describe('Generator Utils - Unit Test', () => {
+describe('Generator Utilities - Unit Test', () => {
     describe('getAllDirectories', () => {
         describe('for getReactComponentDirs', () => {
             describe('for web', () => {
@@ -411,9 +411,7 @@ describe('Generator Utils - Unit Test', () => {
 
             const testPlaceHolder = getAllPlaceholderNames(name);
 
-            function assert(err, msg) {
-                expect(err).toEqual(null);
-                expect(msg).toEqual('code generated from template');
+            function assert() {
                 expect(fs.existsSync(directory)).toBeTruthy();
                 expect(fs.existsSync(testTemplate.generated)).toBeTruthy();
                 expect(fs.readFileSync(testTemplate.generated, 'utf8')).toContain(
@@ -441,9 +439,7 @@ describe('Generator Utils - Unit Test', () => {
 
             const testPlaceHolder = getAllPlaceholderNames(name);
 
-            function assert(err, msg) {
-                expect(err).toEqual(null);
-                expect(msg).toEqual('code generated from template');
+            function assert() {
                 expect(fs.existsSync(directory)).toBeTruthy();
                 expect(fs.existsSync(testTemplate.generated)).toBeTruthy();
                 expect(fs.readFileSync(testTemplate.generated, 'utf8')).not.toContain(

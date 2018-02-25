@@ -24,4 +24,8 @@ describe('Create All Templates - Unit Test', () => {
             ).toBeTruthy();
         });
     });
+
+    afterAll(() => {
+        shell.rm('-rf', path.join(ROOT_PATH, 'some-complete-template'));
+    });
 });
