@@ -92,7 +92,7 @@ _IMPORTANT NOTE:_
 
 Given the following example code generation command:
 ```shell
-npm run gen-react-code -- -n example-component -d src/components -N
+npm run gen-react-code -- -n example-component -d src/components
 ```
 
 ![react](gen-react-code-react.gif)
