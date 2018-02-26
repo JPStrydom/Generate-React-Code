@@ -27,6 +27,8 @@ To install and save this npm package, navigate to your project's root directory 
 npm install generate-react-code --save-dev
 ```
 
+![Installation](gen-react-code-install.gif)
+
 Then add the following script to your `packages.json` file:
 
 ```json
@@ -37,13 +39,19 @@ Then add the following script to your `packages.json` file:
 }
 ```
 
+![setup](gen-react-code-setup.gif)
+
+## Example Repo on how to use `generate-react-code`
+[https://github.com/zulucoda/generate-react-code-test](https://github.com/zulucoda/generate-react-code-test)
+
 ## Generation Command
 
 The following command can be used to generate code:
 ```shell
 npm run gen-react-code -- -n example-component -d src/example/dir -r
 ```
-![Demo](gen-react-code-demo.gif)
+
+![Demo](gen-react-code-redux.gif)
 
 
 ## Command Parameter Description:
@@ -84,8 +92,11 @@ _IMPORTANT NOTE:_
 
 Given the following example code generation command:
 ```shell
-npm run gen-react-code -- -n example-component -d src/components -N
+npm run gen-react-code -- -n example-component -d src/components
 ```
+
+![react](gen-react-code-react.gif)
+
 The following file/folder structure will be generated (_take note that the `example-component` directory is generated without you having to specify it explicitly_):
 ```
 project
@@ -105,6 +116,9 @@ Given the following example code generation command:
 ```shell
 npm run gen-react-code -- -n example-component -d src/components -r
 ```
+
+![react](gen-react-code-redux.gif)
+
 The following file/folder structure will be generated (_take note that the `example-component` directory is generated without you having to specify it explicitly_):
 ```
 project
@@ -133,6 +147,9 @@ Given the following example code generation command:
 ```shell
 npm run gen-react-code -- -R
 ```
+
+![react](gen-react-code-redux-core.gif)
+
 The following file/folder structure will be generated (_take note that adding the `-R` parameter will cause only the
 core files to be generated, irrespective of the other parameters_):
 ```
@@ -153,3 +170,22 @@ reducers and general best practices.
 
 _IMPORTANT NOTE:_
 * _Remember to add your `store` to your Redux `Provider` where you're rendering your main app, which is usually located in `src/index.js`_
+
+
+### React Native Example
+
+Given the following example code generation command:
+```shell
+npm run gen-react-code -- -n example-component -d src/components --native
+```
+
+![react](gen-react-code-native.gif)
+
+### No Comments Example
+
+Given the following example code generation command:
+```shell
+npm run gen-react-code -- -n example-component -d src/components -o
+```
+
+![react](gen-react-code-no-comments.gif)
