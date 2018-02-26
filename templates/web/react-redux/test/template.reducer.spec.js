@@ -75,8 +75,5 @@ describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer - Unit Test', () => {
     Add all your asynchronous action tests here. Add each asynchronous action in its own 'describe' and test
     each of the asynchronous action's scenarios in its own 'it'. Remember to test happy and sad cases.
     If you have no asynchronous actions, this code may be omitted.
-
-    NOTE: See `src\services\sub-services\content-service\test\content-services.spec.js` or
-    `src\components\tabs\test\tabs.reducer.spec.js` for a examples.
     */
 });
