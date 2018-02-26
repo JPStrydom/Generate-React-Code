@@ -32,13 +32,14 @@ function applyConfig(params, callback) {
             params.omitComments = params.omitComments || configData.omitComments;
 
             console.log(
-                chalk.bold.underline.cyan('\nConfig Loaded:'),
+                chalk.bold.underline.cyan('Config Loaded:'),
                 chalk.bold.magenta('\nnative:\t\t'),
-                chalk.yellow(params.native),
+                chalk.yellow(params.native || false),
                 chalk.bold.magenta('\nredux:\t\t'),
-                chalk.yellow(params.redux),
+                chalk.yellow(params.redux || false),
                 chalk.bold.magenta('\nomitComments:\t'),
-                chalk.yellow(params.omitComments)
+                chalk.yellow(params.omitComments || false),
+                '\n'
             );
 
             return callback(params);

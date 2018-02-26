@@ -62,7 +62,7 @@ applyConfig(
         reduxCoreDirectory
     }) => {
         console.log(
-            chalk.bold.underline.cyan('\nParameters:'),
+            chalk.bold.underline.cyan('Parameters:'),
             chalk.bold.magenta('\nname:\t\t\t'),
             chalk.yellow(name),
             chalk.bold.magenta('\ndirectory:\t\t'),
