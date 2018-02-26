@@ -101,7 +101,7 @@ functionality and general best practices.
 _IMPORTANT NOTE:_
 * _Remember to add generated style sheets to the main style sheet, which is usually located in `src/index.scss`_
 
-![Demo](gen-react-code.png)
+![Demo](assets/gen-react-code.png)
 
 ### React Example With Config
 
@@ -133,7 +133,7 @@ functionality and general best practices.
 _IMPORTANT NOTE:_
 * _Remember to add generated style sheets to the main style sheet, which is usually located in `src/index.scss`_
 
-![Demo](gen-react-code-config.png)
+![Demo](assets/gen-react-code-config.png)
 
 ### React Native Example
 
@@ -154,7 +154,7 @@ project
 Within these files the majority of the React-Native code will be completed for you - which contains detailed comments on how to add your
 functionality and general best practices.
 
-![Demo](gen-react-code-native.png)
+![Demo](assets/gen-react-code-native.png)
 
 
 ### React With Redux Example
@@ -185,7 +185,7 @@ _IMPORTANT NOTE:_
 * _Remember to add generated reducers to the root reducer, which is usually located in `src/redux/root-reducer.js`_
 * _Remember to add generated style sheets to the main style sheet, which is usually located in `src/index.scss`_
 
-![Demo](gen-react-code-redux.png)
+![Demo](assets/gen-react-code-redux.png)
 
 ### Redux Core Files Example
 
@@ -214,7 +214,7 @@ reducers and general best practices.
 _IMPORTANT NOTE:_
 * _Remember to add your `store` to your Redux `Provider` where you're rendering your main app, which is usually located in `src/index.js`_
 
-![Demo](gen-react-code-redux-core.png)
+![Demo](assets/gen-react-code-redux-core.png)
 
 
 ## Extra Material 
