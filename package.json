@@ -59,7 +59,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
       "!**/assets/**",
-      "!**/templates/**",
+      "!**/templates/**"
     ],
     "testMatch": [
       "<rootDir>/src/test/?(*.)(spec|test).js?(x)"
