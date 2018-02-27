@@ -1,6 +1,6 @@
 {
   "name": "generate-react-code",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": {
     "name": "JP Strydom",
     "email": "jpstrydom8@gmail.com"
@@ -57,7 +57,9 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+      "src/**/*.{js,jsx}",
+      "!**/assets/**",
+      "!**/templates/**"
     ],
     "testMatch": [
       "<rootDir>/src/test/?(*.)(spec|test).js?(x)"

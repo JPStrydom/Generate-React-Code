@@ -27,18 +27,19 @@ function applyConfig(params, callback) {
                 return callback(params);
             }
 
-            params.native = params.native || configData.native;
-            params.redux = params.redux || configData.redux;
-            params.omitComments = params.omitComments || configData.omitComments;
+            params.native = Boolean(params.native || configData.native);
+            params.redux = Boolean(params.redux || configData.redux);
+            params.omitComments = Boolean(params.omitComments || configData.omitComments);
 
             console.log(
-                chalk.bold.underline.cyan('\nConfig Loaded:'),
+                chalk.bold.underline.cyan('Config Loaded:'),
                 chalk.bold.magenta('\nnative:\t\t'),
-                chalk.yellow(params.native),
+                chalk.yellow(params.nativ),
                 chalk.bold.magenta('\nredux:\t\t'),
                 chalk.yellow(params.redux),
                 chalk.bold.magenta('\nomitComments:\t'),
-                chalk.yellow(params.omitComments)
+                chalk.yellow(params.omitComments),
+                '\n'
             );
 
             return callback(params);
