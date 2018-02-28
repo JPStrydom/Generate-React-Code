@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 
 import TEMPLATE_UPPER_CAMEL_CASE_NAMEView from '../TEMPLATE_KEBAB_CASE_NAME.view';
