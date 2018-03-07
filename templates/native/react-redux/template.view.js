@@ -67,6 +67,6 @@ Add all the component styling here.
 const styles = StyleSheet.create({
     text: {
         fontSize: 20,
-        color: colors.nightHawk
+        textAlign: 'center'
     }
 });
