@@ -34,7 +34,7 @@ function applyConfig(params, callback) {
             console.log(
                 chalk.bold.underline.cyan('Config Loaded:'),
                 chalk.bold.magenta('\nnative:\t\t'),
-                chalk.yellow(params.nativ),
+                chalk.yellow(params.native),
                 chalk.bold.magenta('\nredux:\t\t'),
                 chalk.yellow(params.redux),
                 chalk.bold.magenta('\nomitComments:\t'),
