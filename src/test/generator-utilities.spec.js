@@ -16,13 +16,71 @@ const {
 const ROOT_PATH = getRootPath();
 
 describe('Generator Utilities - Unit Test', () => {
+    describe('createTemplate', () => {
+        it('should create template with comments', done => {
+            const name = 'some-directory-create-template';
+            const templatePath = path.join(ROOT_PATH, 'templates', 'web', 'react');
+            const directory = path.join(ROOT_PATH, name);
+
+            if (!fs.existsSync(directory)) {
+                shell.mkdir('-p', path.join(directory));
+            }
+
+            const testTemplate = {
+                template: path.join(templatePath, 'template.view.js'),
+                generated: path.join(directory, `${name}.view.js`)
+            };
+
+            const testPlaceHolder = getAllPlaceholderNames(name);
+
+            function assert() {
+                expect(fs.existsSync(directory)).toBeTruthy();
+                expect(fs.existsSync(testTemplate.generated)).toBeTruthy();
+                expect(fs.readFileSync(testTemplate.generated, 'utf8')).toContain(
+                    'Import all external modules here.'
+                );
+                done();
+            }
+
+            createTemplate(testTemplate, testPlaceHolder, false, assert);
+        });
+
+        it('should create template without comments', done => {
+            const name = 'some-directory-create-template-without-comments';
+            const templatePath = path.join(ROOT_PATH, 'templates', 'web', 'react');
+            const directory = path.join(ROOT_PATH, name);
+
+            if (!fs.existsSync(directory)) {
+                shell.mkdir('-p', path.join(directory));
+            }
+
+            const testTemplate = {
+                template: path.join(templatePath, 'template.view.js'),
+                generated: path.join(directory, `${name}.view.js`)
+            };
+
+            const testPlaceHolder = getAllPlaceholderNames(name);
+
+            function assert() {
+                expect(fs.existsSync(directory)).toBeTruthy();
+                expect(fs.existsSync(testTemplate.generated)).toBeTruthy();
+                expect(fs.readFileSync(testTemplate.generated, 'utf8')).not.toContain(
+                    'Import all external modules here.'
+                );
+                done();
+            }
+
+            createTemplate(testTemplate, testPlaceHolder, true, assert);
+        });
+    });
+
     describe('getAllDirectories', () => {
-        describe('for getReactComponentDirs', () => {
+        describe('getReactComponentDirs', () => {
             describe('for web', () => {
                 describe('NOT redux', () => {
                     it('should return all templates with directories set name and create folder name, with test', () => {
-                        const name = 'some_name';
-                        const directory = 'some_directory';
+                        const name = 'some-name';
+                        const directory = 'some-directory';
 
                         const actual = getAllDirectories(name, directory);
 
@@ -68,8 +126,8 @@ describe('Generator Utilities - Unit Test', () => {
 
                 describe('WITH redux', () => {
                     it('should return all templates with directories set name and create folder name, with test', () => {
-                        const name = 'some_name_redux';
-                        const directory = 'some_directory_redux';
+                        const name = 'some-name-redux';
+                        const directory = 'some-directory-redux';
 
                         const actual = getAllDirectories(name, directory, false, true);
 
@@ -160,8 +218,8 @@ describe('Generator Utilities - Unit Test', () => {
             describe('for native', () => {
                 describe('NOT redux', () => {
                     it('should return all templates with directories set name and create folder name, with test', () => {
-                        const name = 'some_name_native';
-                        const directory = 'some_directory_native';
+                        const name = 'some-name-native';
+                        const directory = 'some-directory-native';
 
                         const actual = getAllDirectories(name, directory, true);
 
@@ -198,8 +256,8 @@ describe('Generator Utilities - Unit Test', () => {
 
                 describe('WITH redux', () => {
                     it('should return all templates with directories set name and create folder name, with test', () => {
-                        const name = 'some_name_redux';
-                        const directory = 'some_directory_redux';
+                        const name = 'some-name-redux';
+                        const directory = 'some-directory-redux';
 
                         const actual = getAllDirectories(name, directory, true, true);
 
@@ -284,11 +342,82 @@ describe('Generator Utilities - Unit Test', () => {
             });
         });
 
-        describe('for getReduxCoreDirs', () => {
+        describe('getReduxCoreDirs', () => {
             it('should return all templates with directories, set with name and create folders for redux core', () => {
-                const directory = 'some_directory_redux_core';
+                const directory = 'some-directory-redux-core';
 
-                const actual = getAllDirectories(null, null, null, null, true, directory);
+                let actual = getAllDirectories(null, null, null, null, true, directory);
+
+                const templates = path.join(ROOT_PATH, 'templates', 'redux-core');
+
+                const expected = {
+                    store: {
+                        template: path.join(templates, 'store.js'),
+                        generated: path.join(ROOT_PATH, directory, 'store.js')
+                    },
+                    rootReducer: {
+                        template: path.join(templates, 'root-reducer.js'),
+                        generated: path.join(ROOT_PATH, directory, 'root-reducer.js')
+                    },
+                    createAction: {
+                        template: path.join(templates, 'action-creator', 'create-action.js'),
+                        generated: path.join(
+                            ROOT_PATH,
+                            directory,
+                            'action-creator',
+                            'create-action.js'
+                        )
+                    },
+                    buildActionType: {
+                        template: path.join(templates, 'action-creator', 'build-action-type.js'),
+                        generated: path.join(
+                            ROOT_PATH,
+                            directory,
+                            'action-creator',
+                            'build-action-type.js'
+                        )
+                    },
+                    createActionTest: {
+                        template: path.join(
+                            templates,
+                            'action-creator',
+                            'test',
+                            'create-action.spec.js'
+                        ),
+                        generated: path.join(
+                            ROOT_PATH,
+                            directory,
+                            'action-creator',
+                            'test',
+                            'create-action.spec.js'
+                        )
+                    },
+                    buildActionTypeTest: {
+                        template: path.join(
+                            templates,
+                            'action-creator',
+                            'test',
+                            'build-action-type.spec.js'
+                        ),
+                        generated: path.join(
+                            ROOT_PATH,
+                            directory,
+                            'action-creator',
+                            'test',
+                            'build-action-type.spec.js'
+                        )
+                    }
+                };
+
+                expect(actual).toEqual(expected);
+                expect(fs.existsSync(path.join(ROOT_PATH, directory))).toBeTruthy();
+            });
+
+            it('should return all templates with directories, set with name and create folders for redux core even if the directory already exists', () => {
+                const directory = 'some-directory-redux-core';
+
+                let actual = getAllDirectories(null, null, null, null, true, directory);
+                actual = getAllDirectories(null, null, null, null, true, directory);
 
                 const templates = path.join(ROOT_PATH, 'templates', 'redux-core');
 
@@ -385,69 +514,11 @@ describe('Generator Utilities - Unit Test', () => {
         });
     });
 
-    describe('createTemplate', () => {
-        it('should create template with comments', done => {
-            const name = 'some-directory-create-template';
-            const templatePath = path.join(ROOT_PATH, 'templates', 'web', 'react');
-            const directory = path.join(ROOT_PATH, name);
-
-            if (!fs.existsSync(directory)) {
-                shell.mkdir('-p', path.join(directory));
-            }
-
-            const testTemplate = {
-                template: path.join(templatePath, 'template.view.js'),
-                generated: path.join(directory, `${name}.view.js`)
-            };
-
-            const testPlaceHolder = getAllPlaceholderNames(name);
-
-            function assert() {
-                expect(fs.existsSync(directory)).toBeTruthy();
-                expect(fs.existsSync(testTemplate.generated)).toBeTruthy();
-                expect(fs.readFileSync(testTemplate.generated, 'utf8')).toContain(
-                    'Import all external modules here.'
-                );
-                done();
-            }
-
-            createTemplate(testTemplate, testPlaceHolder, false, assert);
-        });
-
-        it('should create template without comments', done => {
-            const name = 'some-directory-create-template-without-comments';
-            const templatePath = path.join(ROOT_PATH, 'templates', 'web', 'react');
-            const directory = path.join(ROOT_PATH, name);
-
-            if (!fs.existsSync(directory)) {
-                shell.mkdir('-p', path.join(directory));
-            }
-
-            const testTemplate = {
-                template: path.join(templatePath, 'template.view.js'),
-                generated: path.join(directory, `${name}.view.js`)
-            };
-
-            const testPlaceHolder = getAllPlaceholderNames(name);
-
-            function assert() {
-                expect(fs.existsSync(directory)).toBeTruthy();
-                expect(fs.existsSync(testTemplate.generated)).toBeTruthy();
-                expect(fs.readFileSync(testTemplate.generated, 'utf8')).not.toContain(
-                    'Import all external modules here.'
-                );
-                done();
-            }
-
-            createTemplate(testTemplate, testPlaceHolder, true, assert);
-        });
-    });
-
     afterAll(() => {
-        shell.rm('-rf', path.join(ROOT_PATH, 'some_directory'));
-        shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_native'));
-        shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_redux'));
-        shell.rm('-rf', path.join(ROOT_PATH, 'some_directory_redux_core'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some-directory'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some-directory-native'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some-directory-redux'));
+        shell.rm('-rf', path.join(ROOT_PATH, 'some-directory-redux-core'));
         shell.rm('-rf', path.join(ROOT_PATH, 'some-directory-create-template'));
         shell.rm('-rf', path.join(ROOT_PATH, 'some-directory-create-template-without-comments'));
     });

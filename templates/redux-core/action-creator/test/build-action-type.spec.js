@@ -11,7 +11,7 @@ describe('Build Action Name - Unit Test', () => {
         try {
             buildActionType();
         } catch (e) {
-            expect(e.message).toEqual('File name cannot be blank');
+            expect(e.message).toEqual('Reducer name cannot be blank');
         }
     });
 
