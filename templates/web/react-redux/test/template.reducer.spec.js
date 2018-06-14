@@ -87,8 +87,8 @@ describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer - Unit Test', () => {
             const dispatch = jest.fn();
 
             /*
-               Test Async Action Using mocked dispatch and getState
-               */
+             Test Async Action Using mocked dispatch and getState
+             */
             exampleAsyncAction()(dispatch, getState);
 
             expect(dispatch.mock.calls[0][0]).toEqual(exampleAction(true));
