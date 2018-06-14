@@ -76,4 +76,22 @@ describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer - Unit Test', () => {
     each of the asynchronous action's scenarios in its own 'it'. Remember to test happy and sad cases.
     If you have no asynchronous actions, this code may be omitted.
     */
+    describe('exampleAsyncAction', () => {
+        it('should dispatch exampleAction', () => {
+            /*
+             Mock dispatch and getState
+             */
+            const getState = jest.fn(() => ({
+                TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer: { exampleVariable: false }
+            }));
+            const dispatch = jest.fn();
+
+            /*
+               Test Async Action Using mocked dispatch and getState
+               */
+            exampleAsyncAction()(dispatch, getState);
+
+            expect(dispatch.mock.calls[0][0]).toEqual(exampleAction(true));
+        });
+    });
 });
