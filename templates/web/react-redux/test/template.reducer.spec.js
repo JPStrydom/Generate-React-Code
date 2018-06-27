@@ -79,14 +79,14 @@ describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer - Unit Test', () => {
     describe('exampleAsyncAction', () => {
         it('should dispatch exampleAction', () => {
             /*
-         Mock dispatch and getState
-         Note: jest 23 - you may use .mockName this helps to indicate which mock function is being referenced.
+            Mock dispatch and getState
+            Note: jest 23 - you may use .mockName this helps to indicate which mock function is being referenced.
 
-         const dispatch = jest.fn().mockName('getState');;
+            const dispatch = jest.fn().mockName('getState');;
 
-         const dispatch = jest.fn().mockName('dispatch');;
+            const dispatch = jest.fn().mockName('dispatch');;
 
-         */
+            */
             const getState = jest.fn(() => ({
                 TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer: { exampleVariable: false }
             }));
@@ -94,16 +94,16 @@ describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer - Unit Test', () => {
             const dispatch = jest.fn();
 
             /*
-         Test Async Action Using mocked dispatch and getState
-         */
+            Test Async Action Using mocked dispatch and getState
+            */
             exampleAsyncAction()(dispatch, getState);
 
             /*
-         Assert that dispatch has been called with example action
-         Note: jest 23 - you may use .toHaveBeenNthCalledWith to check order of calls.
+            Assert that dispatch has been called with example action
+            Note: jest 23 - you may use .toHaveBeenNthCalledWith to check order of calls.
 
-         expect(dispatch).toHaveBeenNthCalledWith(1, exampleAction(true));
-        */
+            expect(dispatch).toHaveBeenNthCalledWith(1, exampleAction(true));
+            */
             expect(dispatch).toHaveBeenCalledWith(exampleAction(true));
         });
     });
