@@ -5,6 +5,8 @@ Generate React Code
 [![Coverage Status](https://coveralls.io/repos/github/JPStrydom/Generate-React-Code/badge.svg?branch=master)](https://coveralls.io/github/JPStrydom/Generate-React-Code?branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
+
 This project utilises a scaffolding framework which generates React or React-Native code along with all the essential
 test code... Because who likes writing that themselves?!
 
