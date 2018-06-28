@@ -79,31 +79,33 @@ describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer - Unit Test', () => {
     describe('exampleAsyncAction', () => {
         it('should dispatch exampleAction', () => {
             /*
-            Mock dispatch and getState
-            Note: jest 23 - you may use .mockName this helps to indicate which mock function is being referenced.
+             Mock dispatch and getState
+             Note: If your Jest is on version 23 or higher you may use 'mockName' - this helps to 
+             indicate which mock function is being referenced. This can be used as shown in the example below:
 
-            const dispatch = jest.fn().mockName('getState');;
+             const getState = jest.fn().mockName('getState');
 
-            const dispatch = jest.fn().mockName('dispatch');;
+             const dispatch = jest.fn().mockName('dispatch');
 
-            */
-            const getState = jest.fn(() => ({
+             */
+            const getState = jest.fn().mockImplementation(() => ({
                 TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer: { exampleVariable: false }
             }));
-
-            const dispatch = jest.fn();
+            const dispatch = jest.fn().mockImplementation();
 
             /*
-            Test Async Action Using mocked dispatch and getState
-            */
+             Test your async action using the mocked dispatch and getState
+             */
             exampleAsyncAction()(dispatch, getState);
 
             /*
-            Assert that dispatch has been called with example action
-            Note: jest 23 - you may use .toHaveBeenNthCalledWith to check order of calls.
-
-            expect(dispatch).toHaveBeenNthCalledWith(1, exampleAction(true));
-            */
+             Assert that dispatch has been called with example action
+             Note: If your Jest is on version 23 or higher you may use 'toHaveBeenNthCalledWith' - this 
+             allows you to check the order in which your actions were called. This can be used as 
+             shown in the example below:
+                  
+             expect(dispatch).toHaveBeenNthCalledWith(1, exampleAction(true));
+             */
             expect(dispatch).toHaveBeenCalledWith(exampleAction(true));
         });
     });
