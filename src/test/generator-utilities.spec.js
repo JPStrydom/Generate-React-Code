@@ -3,6 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const shell = require('shelljs');
+const prettier = require('prettier');
 
 const resolvePath = require.resolve('commander');
 
@@ -71,6 +72,33 @@ describe('Generator Utilities - Unit Test', () => {
             }
 
             createTemplate(testTemplate, testPlaceHolder, true, assert);
+        });
+
+        it('should format code using prettier after it has been generated', done => {
+            const name = 'some-directory-create-template';
+            const templatePath = path.join(ROOT_PATH, 'templates', 'web', 'react');
+            const directory = path.join(ROOT_PATH, name);
+
+            if (!fs.existsSync(directory)) {
+                shell.mkdir('-p', path.join(directory));
+            }
+
+            const testTemplate = {
+                template: path.join(templatePath, 'template.view.js'),
+                generated: path.join(directory, `${name}.view.js`)
+            };
+
+            const testPlaceHolder = getAllPlaceholderNames(name);
+
+            const prettierSpy = jest.spyOn(prettier, 'format');
+
+            function assert() {
+                expect(prettierSpy).toHaveBeenCalled();
+                prettierSpy.mockRestore();
+                done();
+            }
+
+            createTemplate(testTemplate, testPlaceHolder, false, assert);
         });
     });
 
