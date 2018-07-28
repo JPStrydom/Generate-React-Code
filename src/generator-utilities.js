@@ -153,10 +153,13 @@ function createTemplate(directory, placeholderNames, omitComments, callback) {
             data = removeComments(data);
         }
 
+        const prettierParser = directory.generated.indexOf('.scss') > -1 ? 'scss' : 'babylon';
+
         const formattedCode = prettier.format(data, {
             tabWidth: 4,
             singleQuote: true,
-            printWidth: 100
+            printWidth: 100,
+            parser: prettierParser
         });
 
         fs.writeFile(directory.generated, formattedCode, err => {
