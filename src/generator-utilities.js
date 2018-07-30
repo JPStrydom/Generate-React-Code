@@ -3,6 +3,7 @@
 const fs = require('fs');
 const shell = require('shelljs');
 const path = require('path');
+const prettier = require('prettier');
 
 const resolvePath = require.resolve('commander');
 const NODE_MODULES = 'node_modules';
@@ -152,7 +153,16 @@ function createTemplate(directory, placeholderNames, omitComments, callback) {
             data = removeComments(data);
         }
 
-        fs.writeFile(directory.generated, data, err => {
+        const prettierParser = directory.generated.indexOf('.scss') > -1 ? 'scss' : 'babylon';
+
+        const formattedCode = prettier.format(data, {
+            tabWidth: 4,
+            singleQuote: true,
+            printWidth: 100,
+            parser: prettierParser
+        });
+
+        fs.writeFile(directory.generated, formattedCode, err => {
             if (err) throw err;
             return callback();
         });
