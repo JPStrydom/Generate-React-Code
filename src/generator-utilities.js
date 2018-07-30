@@ -4,10 +4,16 @@ const fs = require('fs');
 const shell = require('shelljs');
 const path = require('path');
 const prettier = require('prettier');
+const commander = require.resolve('commander');
+const _ = require('lodash');
 
-const resolvePath = require.resolve('commander');
-const NODE_MODULES = 'node_modules';
+const NODE_MODULES_PATH = 'node_modules';
 const ROOT_PATH = getRootPath();
+const PRETTIER_CONFIG = {
+    tabWidth: 4,
+    singleQuote: true,
+    printWidth: 100
+};
 
 function getAllDirectories(name, directory, native, redux, reduxCore, reduxCoreDirectory) {
     if (reduxCore) {
@@ -124,17 +130,13 @@ function getReactComponentDirs(name, directory, native, redux) {
         }
     };
 
-    return Object.assign(reactDirs, reduxDirs);
+    return _.assign(reactDirs, reduxDirs);
 }
 
-function kebabToCamel(s) {
-    return s.replace(/-\w/g, m => m[1].toUpperCase());
-}
-
-function getAllPlaceholderNames(name) {
-    const lowerCamel = kebabToCamel(name);
-    const upperCamel = `${lowerCamel.charAt(0).toUpperCase()}${lowerCamel.slice(1)}`;
-    return { kebab: name, lowerCamel, upperCamel };
+function getAllPlaceholderNames(kebab) {
+    const lowerCamel = _.camelCase(kebab);
+    const upperCamel = _.upperFirst(lowerCamel);
+    return { kebab, lowerCamel, upperCamel };
 }
 
 function removeComments(s) {
@@ -145,22 +147,15 @@ function createTemplate(directory, placeholderNames, omitComments, callback) {
     fs.readFile(directory.template, 'utf8', (err, data) => {
         if (err) throw err;
 
-        data = data.replace(/TEMPLATE_KEBAB_CASE_NAME/g, placeholderNames.kebab);
-        data = data.replace(/TEMPLATE_LOWER_CAMEL_CASE_NAME/g, placeholderNames.lowerCamel);
-        data = data.replace(/TEMPLATE_UPPER_CAMEL_CASE_NAME/g, placeholderNames.upperCamel);
+        data = _.replace(data, /TEMPLATE_KEBAB_CASE_NAME/g, placeholderNames.kebab);
+        data = _.replace(data, /TEMPLATE_LOWER_CAMEL_CASE_NAME/g, placeholderNames.lowerCamel);
+        data = _.replace(data, /TEMPLATE_UPPER_CAMEL_CASE_NAME/g, placeholderNames.upperCamel);
 
         if (omitComments) {
             data = removeComments(data);
         }
 
-        const prettierParser = directory.generated.indexOf('.scss') > -1 ? 'scss' : 'babylon';
-
-        const formattedCode = prettier.format(data, {
-            tabWidth: 4,
-            singleQuote: true,
-            printWidth: 100,
-            parser: prettierParser
-        });
+        const formattedCode = formatCodeWithPrettier(data, directory);
 
         fs.writeFile(directory.generated, formattedCode, err => {
             if (err) throw err;
@@ -169,8 +164,15 @@ function createTemplate(directory, placeholderNames, omitComments, callback) {
     });
 }
 
+function formatCodeWithPrettier(data, directory) {
+    const parser = _.endsWith(directory.generated, '.scss') ? 'scss' : 'babylon';
+    const config = { ...PRETTIER_CONFIG, parser };
+
+    return prettier.format(data, config);
+}
+
 function getRootPath() {
-    return resolvePath.slice(0, resolvePath.indexOf(NODE_MODULES.toLowerCase()));
+    return commander.slice(0, commander.indexOf(NODE_MODULES_PATH.toLowerCase()));
 }
 
 module.exports = {
