@@ -90,7 +90,7 @@ The following file/folder structure will be generated (_take note that the `exam
 ```
 project
 └───src
-    └───componets
+    └───components
         └───example-component
             │   example-component.view.js
             │   _example-component.styles.scss
@@ -122,7 +122,7 @@ The following file/folder structure will be generated (_take note that the `exam
 ```
 project
 └───src
-    └───componets
+    └───components
         └───example-component
             │   example-component.view.js
             │   _example-component.styles.scss
@@ -147,7 +147,7 @@ The following file/folder structure will be generated (_take note that the `exam
 ```
 project
 └───src
-    └───componets
+    └───components
         └───example-component
             │   example-component.view.js
             └───test
@@ -169,7 +169,7 @@ The following file/folder structure will be generated (_take note that the `exam
 ```
 project
 └───src
-    └───componets
+    └───components
         └───example-component
             │   example-component.container.js
             │   example-component.reducer.js
