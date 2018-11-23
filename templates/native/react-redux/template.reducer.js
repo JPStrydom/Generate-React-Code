@@ -5,7 +5,7 @@ NOTE: Remember to add this reducer to the root reducer found in 'src/redux/root-
 /*
 NOTE: The CreateAction directory my change based on your module's desired location.
 */
-import CreateAction from '../../redux/action-creator/action-creator';
+import CreateAction from '../../redux/action-utilities/action-creator';
 /*
 Import all local modules here.
 */
@@ -30,8 +30,8 @@ your state will change along with it. Be careful of this!
 */
 export function exampleAsyncAction() {
     return (dispatch, getState) => {
-        const { exampleReducer } = getState();
-        dispatch(exampleAction(!exampleReducer.exampleVariable));
+        const { TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer } = getState();
+        dispatch(exampleAction(!TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer.exampleVariable));
     };
 }
 
