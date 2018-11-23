@@ -3,7 +3,7 @@ Add your app's name here.
 */
 export const appName = 'YourReduxApp';
 
-export default function buildActionType(reducerName = '', actionName = '') {
+export default function createActionType(reducerName = '', actionName = '') {
     reducerName = reducerName.toString().trim();
     if (!reducerName) {
         throw new Error('Reducer name cannot be blank');

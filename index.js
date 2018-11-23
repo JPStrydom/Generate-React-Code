@@ -40,7 +40,7 @@ program
     )
     .option(
         '-R, --redux-core [reduxCore]',
-        "If you would like to generate the Redux core files ('store', 'root-reducer', and 'action-creator'), add this parameter. These files are used to connect your application with Redux.",
+        "If you would like to generate the Redux core files ('store', 'root-reducer', and 'action-utilities'), add this parameter. These files are used to connect your application with Redux.",
         false
     )
     .option(

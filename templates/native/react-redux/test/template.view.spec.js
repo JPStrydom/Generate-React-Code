@@ -10,9 +10,15 @@ describe('TEMPLATE_UPPER_CAMEL_CASE_NAMEView - DOES IT RENDER', () => {
 
     These mocks may be omitted if no function props need to be mocked.
     */
+    const exampleActionMock = jest.fn();
     const exampleAsyncActionMock = jest.fn();
 
     it('should render without crashing', () => {
-        shallow(<TEMPLATE_UPPER_CAMEL_CASE_NAMEView exampleAsyncAction={exampleAsyncActionMock} />);
+        shallow(
+            <TEMPLATE_UPPER_CAMEL_CASE_NAMEView
+                exampleAction={exampleActionMock}
+                exampleAsyncAction={exampleAsyncActionMock}
+            />
+        );
     });
 });

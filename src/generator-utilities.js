@@ -27,7 +27,7 @@ function getReduxCoreDirs(reduxCoreDirectory) {
     const generatedDirectory = path.join(ROOT_PATH, reduxCoreDirectory);
 
     if (!fs.existsSync(generatedDirectory)) {
-        shell.mkdir('-p', path.join(generatedDirectory, 'action-creator', 'test'));
+        shell.mkdir('-p', path.join(generatedDirectory, 'action-utilities', 'test'));
     }
 
     return {
@@ -40,39 +40,39 @@ function getReduxCoreDirs(reduxCoreDirectory) {
             generated: path.join(generatedDirectory, 'root-reducer.js')
         },
         createAction: {
-            template: path.join(templateDirectory, 'action-creator', 'create-action.js'),
-            generated: path.join(generatedDirectory, 'action-creator', 'create-action.js')
+            template: path.join(templateDirectory, 'action-utilities', 'action-creator.js'),
+            generated: path.join(generatedDirectory, 'action-utilities', 'action-creator.js')
         },
-        buildActionType: {
-            template: path.join(templateDirectory, 'action-creator', 'build-action-type.js'),
-            generated: path.join(generatedDirectory, 'action-creator', 'build-action-type.js')
+        createActionType: {
+            template: path.join(templateDirectory, 'action-utilities', 'action-type-creator.js'),
+            generated: path.join(generatedDirectory, 'action-utilities', 'action-type-creator.js')
         },
         createActionTest: {
             template: path.join(
                 templateDirectory,
-                'action-creator',
+                'action-utilities',
                 'test',
-                'create-action.spec.js'
+                'action-creator.spec.js'
             ),
             generated: path.join(
                 generatedDirectory,
-                'action-creator',
+                'action-utilities',
                 'test',
-                'create-action.spec.js'
+                'action-creator.spec.js'
             )
         },
-        buildActionTypeTest: {
+        createActionTypeTest: {
             template: path.join(
                 templateDirectory,
-                'action-creator',
+                'action-utilities',
                 'test',
-                'build-action-type.spec.js'
+                'action-type-creator.spec.js'
             ),
             generated: path.join(
                 generatedDirectory,
-                'action-creator',
+                'action-utilities',
                 'test',
-                'build-action-type.spec.js'
+                'action-type-creator.spec.js'
             )
         }
     };

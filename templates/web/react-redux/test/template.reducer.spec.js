@@ -7,16 +7,17 @@ import SomeApi from '../../../service/some-api';
 
 import TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer, {
     exampleAction,
-    exampleAsyncAction
+    exampleAsyncAction,
     /*
     Add all the actions you wish to test here.
     */
+    initialState
 } from '../TEMPLATE_KEBAB_CASE_NAME.reducer';
 
 describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer - Unit Test', () => {
     function stateBefore() {
         return {
-            exampleVariable: false
+            ...initialState
             /*
             Setup your initial state for testing here.
             */

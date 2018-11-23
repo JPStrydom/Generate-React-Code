@@ -11,7 +11,7 @@ This project utilises a scaffolding framework which generates React or React-Nat
 test code... Because who likes writing that themselves?!
 
 Additionally, it can be used to generate Redux code conforming to the [Redux ducks pattern](https://github.com/erikras/ducks-modular-redux) - and it can also be used to 
-generate the Redux core files needed for React-Redux projects (`store`, `root-reducer`, and `action-creator`).
+generate the Redux core files needed for React-Redux projects (`store`, `root-reducer`, and `action-utilities`).
 
 This generated code conforms to the [Air BnB style guide's](https://github.com/airbnb/javascript) naming and coding-style
 conventions, and it is thus highly recommended to make use of this tool when creating new React or React-Redux components.
@@ -56,7 +56,7 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 | **`-N`** OR<br>**`--native`**               | If you wish to generate code for React-Native, add this parameter - else React web code will be generated.                                                                           | **`false`**              |
 | **`-r`** OR<br>**`--redux`**                | If you wish to generate Redux code in the duck pattern, add this parameter - else regular React code will be generated.                                                              | **`false`**              |
 | **`-o`** OR<br>**`--omit-comments`**        | If you wish to hide the comments within the generated files, add this parameter - else descriptive comments will be left in the generated code.                                      | **`false`**              |
-| **`-R`** OR<br>**`--redux-core`**           | If you would like to generate the Redux core files (`store`, `root-reducer`, and `action-creator`), add this parameter. These files are used to connect your application with Redux. | **`false`**              |
+| **`-R`** OR<br>**`--redux-core`**           | If you would like to generate the Redux core files (`store`, `root-reducer`, and `action-utilities`), add this parameter. These files are used to connect your application with Redux. | **`false`**              |
 | **`-D`** OR<br>**`--redux-core-directory`** | This is the relative directory where the generated Redux core file will be placed (e.g `src/redux`). It is recommended to leave this as the default.                                 | **`src/redux`**          |
 | **`-h`** OR<br>**`--help`**                 | Output help usage information.                                                                                                                                                       |                          |
 

@@ -1,15 +1,15 @@
-import buildActionType, { appName } from '../build-action-type';
+import createActionType, { appName } from '../action-type-creator';
 
 describe('Build Action Name - Unit Test', () => {
     it('should return an action name', () => {
-        const actual = buildActionType('someReducer', 'SOME_ACTION');
+        const actual = createActionType('someReducer', 'SOME_ACTION');
         const expected = `${appName}/someReducer/SOME_ACTION`;
         expect(actual).toEqual(expected);
     });
 
     it('should throw error when reducer name not given', () => {
         try {
-            buildActionType();
+            createActionType();
         } catch (e) {
             expect(e.message).toEqual('Reducer name cannot be blank');
         }
@@ -17,7 +17,7 @@ describe('Build Action Name - Unit Test', () => {
 
     it('should throw error when action name not given', () => {
         try {
-            buildActionType('someReducer');
+            createActionType('someReducer');
         } catch (e) {
             expect(e.message).toEqual('Action name cannot be blank');
         }

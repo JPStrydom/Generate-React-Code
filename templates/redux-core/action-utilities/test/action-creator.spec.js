@@ -1,5 +1,5 @@
-import CreateAction from '../create-action';
-import { appName } from '../build-action-type';
+import CreateAction from '../action-creator';
+import { appName } from '../action-type-creator';
 
 describe('Create Action - Unit Test', () => {
     it('should create an action for reducer', () => {

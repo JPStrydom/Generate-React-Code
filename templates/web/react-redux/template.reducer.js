@@ -5,7 +5,7 @@ NOTE: Remember to add this reducer to the root reducer found in 'src/redux/root-
 /*
 NOTE: The CreateAction directory my change based on your module's desired location.
 */
-import CreateAction from '../../redux/action-creator/create-action';
+import CreateAction from '../../redux/action-utilities/action-creator';
 /*
 Import all local modules here.
 */
@@ -35,14 +35,14 @@ export function exampleAsyncAction() {
     };
 }
 
-const initialSate = {
+export const initialState = {
     exampleVariable: false
     /*
     Add your reducer's initial state here.
     */
 };
 
-export default function TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer(state = initialSate, action) {
+export default function TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer(state = initialState, action) {
     switch (action.type) {
         case example.actionType:
             return { ...state, exampleVariable: action.payload };

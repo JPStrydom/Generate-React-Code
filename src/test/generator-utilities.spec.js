@@ -415,51 +415,55 @@ describe('Generator Utilities - Unit Test', () => {
                         generated: path.join(ROOT_PATH, directory, 'root-reducer.js')
                     },
                     createAction: {
-                        template: path.join(templates, 'action-creator', 'create-action.js'),
+                        template: path.join(templates, 'action-utilities', 'action-creator.js'),
                         generated: path.join(
                             ROOT_PATH,
                             directory,
-                            'action-creator',
-                            'create-action.js'
+                            'action-utilities',
+                            'action-creator.js'
                         )
                     },
-                    buildActionType: {
-                        template: path.join(templates, 'action-creator', 'build-action-type.js'),
+                    createActionType: {
+                        template: path.join(
+                            templates,
+                            'action-utilities',
+                            'action-type-creator.js'
+                        ),
                         generated: path.join(
                             ROOT_PATH,
                             directory,
-                            'action-creator',
-                            'build-action-type.js'
+                            'action-utilities',
+                            'action-type-creator.js'
                         )
                     },
                     createActionTest: {
                         template: path.join(
                             templates,
-                            'action-creator',
+                            'action-utilities',
                             'test',
-                            'create-action.spec.js'
+                            'action-creator.spec.js'
                         ),
                         generated: path.join(
                             ROOT_PATH,
                             directory,
-                            'action-creator',
+                            'action-utilities',
                             'test',
-                            'create-action.spec.js'
+                            'action-creator.spec.js'
                         )
                     },
-                    buildActionTypeTest: {
+                    createActionTypeTest: {
                         template: path.join(
                             templates,
-                            'action-creator',
+                            'action-utilities',
                             'test',
-                            'build-action-type.spec.js'
+                            'action-type-creator.spec.js'
                         ),
                         generated: path.join(
                             ROOT_PATH,
                             directory,
-                            'action-creator',
+                            'action-utilities',
                             'test',
-                            'build-action-type.spec.js'
+                            'action-type-creator.spec.js'
                         )
                     }
                 };
@@ -486,51 +490,55 @@ describe('Generator Utilities - Unit Test', () => {
                         generated: path.join(ROOT_PATH, directory, 'root-reducer.js')
                     },
                     createAction: {
-                        template: path.join(templates, 'action-creator', 'create-action.js'),
+                        template: path.join(templates, 'action-utilities', 'action-creator.js'),
                         generated: path.join(
                             ROOT_PATH,
                             directory,
-                            'action-creator',
-                            'create-action.js'
+                            'action-utilities',
+                            'action-creator.js'
                         )
                     },
-                    buildActionType: {
-                        template: path.join(templates, 'action-creator', 'build-action-type.js'),
+                    createActionType: {
+                        template: path.join(
+                            templates,
+                            'action-utilities',
+                            'action-type-creator.js'
+                        ),
                         generated: path.join(
                             ROOT_PATH,
                             directory,
-                            'action-creator',
-                            'build-action-type.js'
+                            'action-utilities',
+                            'action-type-creator.js'
                         )
                     },
                     createActionTest: {
                         template: path.join(
                             templates,
-                            'action-creator',
+                            'action-utilities',
                             'test',
-                            'create-action.spec.js'
+                            'action-creator.spec.js'
                         ),
                         generated: path.join(
                             ROOT_PATH,
                             directory,
-                            'action-creator',
+                            'action-utilities',
                             'test',
-                            'create-action.spec.js'
+                            'action-creator.spec.js'
                         )
                     },
-                    buildActionTypeTest: {
+                    createActionTypeTest: {
                         template: path.join(
                             templates,
-                            'action-creator',
+                            'action-utilities',
                             'test',
-                            'build-action-type.spec.js'
+                            'action-type-creator.spec.js'
                         ),
                         generated: path.join(
                             ROOT_PATH,
                             directory,
-                            'action-creator',
+                            'action-utilities',
                             'test',
-                            'build-action-type.spec.js'
+                            'action-type-creator.spec.js'
                         )
                     }
                 };

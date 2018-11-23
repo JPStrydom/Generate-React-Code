@@ -4,17 +4,18 @@ import { bindActionCreators } from 'redux';
 import { mapStateToProps, mapDispatchToProps } from '../TEMPLATE_KEBAB_CASE_NAME.container';
 import {
     exampleAction,
-    exampleAsyncAction
+    exampleAsyncAction,
     /*
     Import all the actions you wish to expose to the view here.
     */
+    initialState
 } from '../TEMPLATE_KEBAB_CASE_NAME.reducer';
 
 describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEContainer - Unit test', () => {
     function stateBefore() {
         return {
             TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer: {
-                exampleVariable: true
+                ...initialState
                 /*
                 Setup your initial state for testing here.
                 */
@@ -26,7 +27,7 @@ describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEContainer - Unit test', () => {
         const actual = mapStateToProps(stateBefore());
 
         const expected = {
-            exampleVariable: true
+            ...initialState
             /*
             Setup your initial state for verification here.
             */
