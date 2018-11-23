@@ -36,7 +36,7 @@ export function exampleAsyncAction() {
 }
 
 export const initialState = {
-    exampleVariable: false
+    exampleVariable: true
     /*
     Add your reducer's initial state here.
     */
