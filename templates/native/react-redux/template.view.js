@@ -43,9 +43,9 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
     exampleHelper() {
         this.props.exampleAction(true);
         if (!this.props.exampleVariable) {
-            return <Text style={styles.text}>My template has been fiddled with</Text>;
+            return <Text style={styles.text}>{'My template has been fiddled with'}</Text>;
         }
-        return <Text style={styles.text}>Hello World! Welcome to my template</Text>;
+        return <Text style={styles.text}>{'Hello World! Welcome to my template'}</Text>;
     }
 }
 

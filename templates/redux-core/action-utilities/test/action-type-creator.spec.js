@@ -8,18 +8,10 @@ describe('Build Action Name - Unit Test', () => {
     });
 
     it('should throw error when reducer name not given', () => {
-        try {
-            createActionType();
-        } catch (e) {
-            expect(e.message).toEqual('Reducer name cannot be blank');
-        }
+        expect(createActionType).toThrow('Reducer name cannot be blank');
     });
 
     it('should throw error when action name not given', () => {
-        try {
-            createActionType('someReducer');
-        } catch (e) {
-            expect(e.message).toEqual('Action name cannot be blank');
-        }
+        expect(() => createActionType('someReducer')).toThrow('Action name cannot be blank');
     });
 });

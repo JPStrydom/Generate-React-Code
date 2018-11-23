@@ -29,19 +29,12 @@ describe('Create Action - Unit Test', () => {
     });
 
     it('should fail if no reducer name is provided', () => {
-        try {
-            CreateAction();
-        } catch (e) {
-            expect(e.message).toEqual('Please provide a valid reducer and action name');
-        }
+        expect(CreateAction).toThrow('Please provide a valid reducer and action name');
     });
 
     it('should fail if no action name is provided', () => {
-        try {
-            const reducerName = 'some_reducer';
-            CreateAction(reducerName);
-        } catch (e) {
-            expect(e.message).toEqual('Please provide a valid reducer and action name');
-        }
+        expect(() => CreateAction('some_reducer')).toThrow(
+            'Please provide a valid reducer and action name'
+        );
     });
 });
