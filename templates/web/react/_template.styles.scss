@@ -6,7 +6,7 @@ NOTE: Remember to add this style sheet o the main style sheet found in 'src/inde
 Add all the component styling and nested styling here.
 */
 
-.TEMPLATE_KEBAB_CASE_NAME {
+.TEMPLATE_KEBAB_CASE_NAME-wrapper {
     background-color: purple;
     text-align: center;
     padding: 10px;
@@ -14,11 +14,5 @@ Add all the component styling and nested styling here.
     h1 {
         color: orange;
         font-size: 40px;
-    }
-
-    .button {
-        color: black;
-        font-size: 26px;
-        border-radius: 5px;
     }
 }

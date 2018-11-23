@@ -27,7 +27,7 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
     }
 
     render() {
-        return <div className="TEMPLATE_KEBAB_CASE_NAME">{this.renderTextExample()}</div>;
+        return <div className="TEMPLATE_KEBAB_CASE_NAME-wrapper">{this.renderTextExample()}</div>;
     }
 
     /*
