@@ -1,57 +1,107 @@
 {
+  "_from": "generate-react-code",
+  "_id": "generate-react-code@2.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-YZWql+rffkJBGtPU5lU4N5nEQEO39T/HC69hfqqvSREqo9WskpyPour9q2tw5TwYsruseVRBRR7961miDwpwJw==",
+  "_location": "/generate-react-code",
+  "_phantomChildren": {
+    "ansi-styles": "3.2.1",
+    "escape-string-regexp": "1.0.5",
+    "has-flag": "3.0.0"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "generate-react-code",
     "name": "generate-react-code",
-    "version": "2.0.0",
-    "author": {
-        "name": "JP Strydom",
-        "email": "jpstrydom8@gmail.com"
-    },
-    "contributors": [
-        {
-            "name": "Muzikayise Flynn Buthelezi (zuluCoda)",
-            "email": "muzi@mfbproject.co.za",
-            "url": "https://mfbproject.co.za"
-        }
-    ],
-    "description":
-        "An automated React code generation tool for React web, React-Native, and/or Redux in the ducks modular pattern.",
-    "license": "ISC",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/JPStrydom/Generate-React-Code.git"
-    },
-    "bin": {
-        "generate-react-code": "./index.js"
-    },
-    "main": "index.js",
-    "keywords": ["React", "React-Native", "Redux", "Ducks", "code generator"],
-    "scripts": {
-        "gen-react-code": "node index.js",
-        "test": "jest --coverage",
-        "test-watch": "jest --watch --verbose",
-        "prettier": "prettier --write \"**/*.{js,scss}\"",
-        "precommit": "lint-staged"
-    },
-    "devDependencies": {
-        "coveralls": "3.0.0",
-        "husky": "0.14.3",
-        "jest": "22.2.2",
-        "lint-staged": "6.1.0"
-    },
-    "dependencies": {
-        "chalk": "2.3.1",
-        "commander": "2.14.1",
-        "lodash": "4.17.5",
-        "shelljs": "0.8.1",
-        "prettier": "1.10.2"
-    },
-    "lint-staged": {
-        "*.js": ["node_modules/.bin/prettier --write", "git add"]
-    },
-    "jest": {
-        "collectCoverageFrom": ["src/**/*.{js,jsx}", "!**/assets/**", "!**/templates/**"],
-        "testMatch": ["<rootDir>/src/test/?(*.)(spec|test).js?(x)"],
-        "testEnvironment": "node",
-        "testURL": "http://localhost",
-        "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"]
+    "escapedName": "generate-react-code",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/generate-react-code/-/generate-react-code-2.0.0.tgz",
+  "_shasum": "453ec26201eefb42d4978476a693b932bdb7a82a",
+  "_spec": "generate-react-code",
+  "_where": "/home/klaus/React Practice/test-react-code-library",
+  "author": {
+    "name": "JP Strydom",
+    "email": "jpstrydom8@gmail.com"
+  },
+  "bin": {
+    "generate-react-code": "./index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/JPStrydom/Generate-React-Code/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Muzikayise Flynn Buthelezi",
+      "email": "muzi@mfbproject.co.za",
+      "url": "zuluCoda"
     }
+  ],
+  "dependencies": {
+    "chalk": "2.3.1",
+    "commander": "2.14.1",
+    "lodash": "4.17.5",
+    "prettier": "1.10.2",
+    "shelljs": "0.8.1"
+  },
+  "deprecated": false,
+  "description": "An automated React code generation tool for React web, React-Native, and/or Redux in the ducks modular pattern.",
+  "devDependencies": {
+    "coveralls": "3.0.0",
+    "husky": "0.14.3",
+    "jest": "22.2.2",
+    "lint-staged": "6.1.0"
+  },
+  "homepage": "https://github.com/JPStrydom/Generate-React-Code#readme",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/assets/**",
+      "!**/templates/**"
+    ],
+    "testMatch": [
+      "<rootDir>/src/test/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ]
+  },
+  "keywords": [
+    "React",
+    "React-Native",
+    "Redux",
+    "Ducks",
+    "code generator"
+  ],
+  "license": "ISC",
+  "lint-staged": {
+    "*.js": [
+      "node_modules/.bin/prettier --write",
+      "git add"
+    ]
+  },
+  "main": "index.js",
+  "name": "generate-react-code",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPStrydom/Generate-React-Code.git"
+  },
+  "scripts": {
+    "gen-react-code": "node index.js",
+    "precommit": "lint-staged",
+    "prettier": "prettier --write \"**/*.{js,scss}\"",
+    "test": "jest --coverage",
+    "test-watch": "jest --watch --verbose"
+  },
+  "version": "2.0.0"
 }

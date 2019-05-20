@@ -15,7 +15,6 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
         /*
         Add all required function binding here. If no binding is required, the constructor may be omitted.
         */
-        this.renderTextExample = this.renderTextExample.bind(this);
     }
 
     componentDidMount() {
@@ -35,7 +34,7 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
     needs to be used (See examples below). If 'this' does not need to be accessed,
     the function may be made static.
     */
-    renderTextExample() {
+    renderTextExample = () => {
         const message = `Welcome to our template view ${this.props.exampleVariable || '( ͡° ͜ʖ ͡°)'}`;
         return <h1>{message}</h1>;
     }

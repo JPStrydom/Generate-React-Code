@@ -16,7 +16,8 @@ function createAllTemplates(
     redux,
     omitComments,
     reduxCore,
-    reduxCoreDirectory
+    reduxCoreDirectory,
+    functional
 ) {
     const directories = getAllDirectories(
         name,
@@ -24,7 +25,8 @@ function createAllTemplates(
         native,
         redux,
         reduxCore,
-        reduxCoreDirectory
+        reduxCoreDirectory,
+        functional
     );
     const placeholderNames = getAllPlaceholderNames(name);
 

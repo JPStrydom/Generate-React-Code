@@ -8,9 +8,9 @@ import {
     /*
     Import all the actions you wish to expose to the view here.
     */
-} from './TEMPLATE_KEBAB_CASE_NAME.reducer';
+} from './TEMPLATE_KEBAB_CASE_NAME.action';
 
-export function mapStateToProps({ TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer }) {
+export const mapStateToProps = ({ TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer }) => {
     return {
         exampleVariable: TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer.exampleVariable
         /*
@@ -19,7 +19,7 @@ export function mapStateToProps({ TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer }) {
     };
 }
 
-export function mapDispatchToProps(dispatch) {
+export const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
             exampleAction,

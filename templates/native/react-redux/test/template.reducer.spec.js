@@ -15,7 +15,7 @@ import TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer, {
 } from '../TEMPLATE_KEBAB_CASE_NAME.reducer';
 
 describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer - Unit Test', () => {
-    function stateBefore() {
+    stateBefore = () => {
         return {
             ...initialState
             /*

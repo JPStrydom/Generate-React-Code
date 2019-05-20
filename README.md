@@ -58,6 +58,7 @@ npm run gen-react-code -- -n example-component -d src/example/dir -r
 | **`-o`** OR<br>**`--omit-comments`**        | If you wish to hide the comments within the generated files, add this parameter - else descriptive comments will be left in the generated code.                                         | **`false`**              |
 | **`-R`** OR<br>**`--redux-core`**           | If you would like to generate the Redux core files (`store`, `root-reducer`, and `action-utilities`), add this parameter. These files are used to connect your application with Redux.  | **`false`**              |
 | **`-D`** OR<br>**`--redux-core-directory`** | This is the relative directory where the generated Redux core file will be placed (e.g `src/redux`). It is recommended to leave this as the default.                                    | **`src/redux`**          |
+| **`-f`** OR<br>**`--functional`**           | If you wish to generate a component as a functional component, use this parameter - else it will be class component.                                                                         | **`false`**          |
 | **`-h`** OR<br>**`--help`**                 | Output help usage information.                                                                                                                                                          |                          |
 
 ## Configuration File

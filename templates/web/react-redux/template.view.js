@@ -15,8 +15,6 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
         /*
         Add all required function binding here. If no binding is required, the constructor may be omitted.
         */
-        this.renderHeaderExample = this.renderHeaderExample.bind(this);
-        this.renderButtonExample = this.renderButtonExample.bind(this);
 
         /*
         NOTE: Do NOT use 'this.state'! State management is wat Redux is used for.
@@ -46,14 +44,14 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
     needs to be used (See examples below). If 'this' does not need to be accessed,
     the function may be made static.
     */
-    renderHeaderExample() {
+    renderHeaderExample = () => {
         if (!this.props.exampleVariable) {
             return <h1>{"You've now fiddled with the template ( ͡° ͜ʖ ͡°)"}</h1>;
         }
         return <h1>{'Welcome to our template (ง •̀_•́)ง'}</h1>;
     }
 
-    renderButtonExample() {
+    renderButtonExample = () => {
         return (
             <button className="button" onClick={this.props.exampleAsyncAction}>
                 {'Click Me'}

@@ -12,7 +12,7 @@ import {
 } from '../TEMPLATE_KEBAB_CASE_NAME.reducer';
 
 describe('TEMPLATE_LOWER_CAMEL_CASE_NAMEContainer - Unit test', () => {
-    function stateBefore() {
+    stateBefore = () => {
         return {
             TEMPLATE_LOWER_CAMEL_CASE_NAMEReducer: {
                 ...initialState

@@ -30,6 +30,7 @@ function applyConfig(params, callback) {
             params.native = Boolean(params.native || configData.native);
             params.redux = Boolean(params.redux || configData.redux);
             params.omitComments = Boolean(params.omitComments || configData.omitComments);
+            params.functional = Boolean(params.functional || configData.functional);
 
             console.log(
                 chalk.bold.underline.cyan('Config Loaded:'),
@@ -39,6 +40,8 @@ function applyConfig(params, callback) {
                 chalk.yellow(params.redux),
                 chalk.bold.magenta('\nomitComments:\t'),
                 chalk.yellow(params.omitComments),
+                chalk.bold.magenta('\nfunctional:\t'),
+                chalk.yellow(params.functional),
                 '\n'
             );
 

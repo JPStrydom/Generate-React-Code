@@ -16,7 +16,6 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
         /*
         Add all required function binding here. If no binding is required, the constructor may be omitted.
         */
-        this.exampleHelper = this.exampleHelper.bind(this);
 
         /*
         NOTE: Do NOT use 'this.state'! State management is wat Redux is used for.
@@ -40,7 +39,7 @@ export default class TEMPLATE_UPPER_CAMEL_CASE_NAMEView extends Component {
     Add all helper functions here. Remember to 'bind' functions where 'this'
     needs to be used (See example below).
     */
-    exampleHelper() {
+    exampleHelper = () => {
         this.props.exampleAction(true);
         if (!this.props.exampleVariable) {
             return <Text style={styles.text}>{'My template has been fiddled with'}</Text>;

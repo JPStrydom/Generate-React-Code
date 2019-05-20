@@ -48,6 +48,11 @@ program
         `This is the relative directory where the generated Redux core file will be placed (e.g ${DEFAULT_REDUX_CORE_DIRECTORY}). It is recommended to leave this as the default.`,
         DEFAULT_REDUX_CORE_DIRECTORY
     )
+    .option(
+        '-f, --functional [functional]',
+        `If you wish to generate a component as a functional component, use this parameter - else it will be class component. `,
+        false
+    )
     .parse(process.argv);
 
 applyConfig(
@@ -59,7 +64,8 @@ applyConfig(
         redux = false,
         omitComments = false,
         reduxCore = false,
-        reduxCoreDirectory
+        reduxCoreDirectory,
+        functional = false
     }) => {
         console.log(
             chalk.bold.underline.cyan('Parameters:'),
@@ -77,6 +83,8 @@ applyConfig(
             chalk.yellow(reduxCore),
             chalk.bold.magenta('\nreduxCoreDirectory:\t'),
             chalk.yellow(reduxCoreDirectory),
+            chalk.bold.magenta('\nfunctional:\t'),
+            chalk.yellow(functional),
             '\n'
         );
 
@@ -87,7 +95,8 @@ applyConfig(
             redux,
             omitComments,
             reduxCore,
-            reduxCoreDirectory
+            reduxCoreDirectory,
+            functional
         );
     }
 );
